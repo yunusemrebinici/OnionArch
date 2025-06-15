@@ -12,7 +12,7 @@ namespace Persistance.Context
 	{
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			optionsBuilder.UseSqlServer("Server=EMRE\\SQLEXPRESS01;initial Catalog=CarBook;integrated Security=true;");
+			optionsBuilder.UseSqlServer("Server=EMRE\\SQLEXPRESS01;initial Catalog=CarBook;integrated Security=true;TrustServerCertificate=true;");
 		}
 		public DbSet<About> Abouts { get; set; }
 		public DbSet<Banner> Banners { get; set; }

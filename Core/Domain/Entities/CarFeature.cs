@@ -8,7 +8,7 @@ namespace Domain.Entities
 {
 	public class CarFeature
 	{
-		public int CareFaatureID { get; set; }
+		public int CarFeatureID { get; set; }
 
 		public int CarID { get; set; }
 

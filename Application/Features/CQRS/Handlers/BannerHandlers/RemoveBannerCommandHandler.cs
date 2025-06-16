@@ -1,4 +1,5 @@
-﻿using Application.Interfaces;
+﻿using Application.Features.CQRS.Commands.BannerCommands;
+using Application.Interfaces;
 using Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,10 @@ namespace Application.Features.CQRS.Handlers.BannerHandlers
 			_repository = repository;
 		}
 
-	    
+	    public async Task Handle(RemoveBannerCommand command)
+		{
+			var value = await _repository.GetByIdAsync(command.Id);
+			await _repository.RemoveAsync(value);
+		}
 	}
 }

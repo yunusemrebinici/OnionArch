@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace Persistance.Repositories
 {
-	public class Repositoriy<T> : IRepository<T> where T : class
+	public class Repository<T> : IRepository<T> where T : class
 	{
 		private readonly CarBookContext _context;
-		public Repositoriy(CarBookContext bookContext)
+		public Repository(CarBookContext bookContext)
 		{
 			_context = bookContext;
 		}

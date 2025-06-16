@@ -36,7 +36,7 @@ namespace Persistance.Repositories
 
 		public async Task RemoveAsync(T t)
 		{
-			_context.Remove(t);
+			_context.Set<T>().Remove(t);
 			await _context.SaveChangesAsync();
 			return;
 		}

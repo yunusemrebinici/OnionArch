@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace Application.Features.CQRS.Handlers.ContactHandlers
 {
-	public class GetByIdContactQueryHandler
+	public class GetContactByIdQueryHandler
 	{
 		private readonly IRepository<Contact> _contactRepository;
 
-		public GetByIdContactQueryHandler(IRepository<Contact> contactRepository)
+		public GetContactByIdQueryHandler(IRepository<Contact> contactRepository)
 		{
 			_contactRepository = contactRepository;
 		}
@@ -29,6 +29,7 @@ namespace Application.Features.CQRS.Handlers.ContactHandlers
 				Message = value.Message,
 				Name = value.Name,
 				SendDate = value.SendDate,
+				Subject=value.Subject,
 			};
 		  
 		}

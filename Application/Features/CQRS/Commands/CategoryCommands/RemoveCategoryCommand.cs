@@ -8,7 +8,6 @@ namespace Application.Features.CQRS.Commands.CategoryCommands
 {
 	public class RemoveCategoryCommand
 	{
-		
 
 		public RemoveCategoryCommand(int id)
 		{

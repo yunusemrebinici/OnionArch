@@ -1,4 +1,6 @@
 ﻿using Application.Features.CQRS.Commands.CategoryCommands;
+using Application.Features.CQRS.Queries.CategoryQuaries;
+using Application.Features.CQRS.Results.CategoryResults;
 using Application.Interfaces;
 using Domain.Entities;
 using System;
@@ -18,12 +20,16 @@ namespace Application.Features.CQRS.Handlers.CategoryHandlers
 			_repository = repository;
 		}
 
-		public async Task Handle(CreateCategoryCommand command)
+		public async Task <GetCategoryByIdQueryResult>Handle(GetCategoryByIdQuary quary)
 		{
-			await _repository.CreateAsync(new Category
+			var values= await _repository.GetByIdAsync(quary.Id);
+			return new GetCategoryByIdQueryResult
 			{
-				Name = command.Name,
-			});
+				CategoryID = values.CategoryID,
+				Name = values.Name,
+
+			};
+
 		}
 	}
 }

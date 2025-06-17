@@ -2,6 +2,7 @@ using Application.Features.CQRS.Handlers.AboutHandlers;
 using Application.Features.CQRS.Handlers.BannerHandlers;
 using Application.Features.CQRS.Handlers.BrandHandlers;
 using Application.Features.CQRS.Handlers.CarHandlers;
+using Application.Features.CQRS.Handlers.CategoryHandlers;
 using Application.Interfaces;
 using Application.Interfaces.ICarRepositories;
 using Persistance.Context;
@@ -40,6 +41,12 @@ builder.Services.AddScoped<GetCarQueryHandler>();
 builder.Services.AddScoped<RemoveCarCommandHandler>();
 builder.Services.AddScoped<UpdateCarCommandHandler>();
 builder.Services.AddScoped<GetCarWithBrandQueryHandler>();
+
+builder.Services.AddScoped<CreateCategoryCommandHandler>();
+builder.Services.AddScoped<GetCategoryByIdQuaryHandler>();
+builder.Services.AddScoped<GetCategoryQuaryHandler>();
+builder.Services.AddScoped<RemoveCategoryCommandHandler>();
+builder.Services.AddScoped<UpdateCategoryCommandHandler>();
 
 
 builder.Services.AddControllers();

@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Application.Features.CQRS.Handlers.CategoryHandlers
 {
-	public class GetCategoryQuaryResultHandler
+	public class GetCategoryQuaryHandler
 	{
 		private readonly IRepository<Category> _repository;
 
-		public GetCategoryQuaryResultHandler(IRepository<Category> repository)
+		public GetCategoryQuaryHandler(IRepository<Category> repository)
 		{
 			_repository = repository;
 		}

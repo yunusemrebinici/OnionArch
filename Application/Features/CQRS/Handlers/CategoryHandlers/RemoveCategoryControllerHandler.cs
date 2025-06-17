@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Application.Interfaces;
+using Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +10,18 @@ namespace Application.Features.CQRS.Handlers.CategoryHandlers
 {
 	public class RemoveCategoryControllerHandler
 	{
+		private readonly IRepository<Category> _repository;
+
+		public RemoveCategoryControllerHandler(IRepository<Category> repository)
+		{
+			_repository = repository;
+		}
+
+		public async Task Handle(int id)
+		{
+			var value= await _repository.GetByIdAsync(id);	
+			await _repository.RemoveAsync(value);
+
+		}
 	}
 }

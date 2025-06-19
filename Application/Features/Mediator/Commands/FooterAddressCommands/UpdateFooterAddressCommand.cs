@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Mediator.Commands.FooterAddressCommands
 {
-	public class UpdateFooterAddressCommend:IRequest
+	public class UpdateFooterAddressCommand:IRequest
 	{
 		public int FooterAddressID { get; set; }
 

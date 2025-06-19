@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace Application.Features.Mediator.Results.LocationResults
 {
-	public class Location
+	public class GetLocationByIdQueryResult
 	{
 		public int LocationID { get; set; }
 

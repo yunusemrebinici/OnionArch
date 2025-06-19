@@ -15,6 +15,11 @@ namespace Application.Features.Mediator.Handlers.FeatureHandlers
 	{
 		private readonly IRepository<Feature> _repository;
 
+		public GetFeatureByIdQueryHandler(IRepository<Feature> repository)
+		{
+			_repository = repository;
+		}
+
 		public async Task<GetFeatureByIdQueryResult> Handle(GetFeatureByIdQuery request, CancellationToken cancellationToken)
 		{
 			var value= await _repository.GetByIdAsync(request.Id);

@@ -6,6 +6,7 @@ using Application.Features.CQRS.Handlers.CategoryHandlers;
 using Application.Features.CQRS.Handlers.ContactHandlers;
 using Application.Interfaces;
 using Application.Interfaces.ICarRepositories;
+using Application.Services;
 using Persistance.Context;
 using Persistance.Repositories;
 using Persistance.Repositories.CarRepositories;
@@ -54,6 +55,8 @@ builder.Services.AddScoped<GetContactQueryHandler>();
 builder.Services.AddScoped<GetContactByIdQueryHandler>();
 builder.Services.AddScoped<RemoveContactCommandHandler>();
 builder.Services.AddScoped<UpdateContactCommandHandler>();
+
+builder.Services.AddApplicationService(builder.Configuration);
 
 
 builder.Services.AddControllers();

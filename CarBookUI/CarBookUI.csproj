@@ -6,4 +6,23 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\carbook-UI\.DS_Store" />
+    <None Include="wwwroot\carbook-UI\css\.DS_Store" />
+    <None Include="wwwroot\carbook-UI\css\bootstrap\.DS_Store" />
+    <None Include="wwwroot\carbook-UI\css\css\.DS_Store" />
+    <None Include="wwwroot\carbook-UI\fonts\.DS_Store" />
+    <None Include="wwwroot\carbook-UI\fonts\flaticon\.DS_Store" />
+    <None Include="wwwroot\carbook-UI\fonts\flaticon\font\.DS_Store" />
+    <None Include="wwwroot\carbook-UI\fonts\ionicons\fonts\.DS_Store" />
+    <None Include="wwwroot\carbook-UI\images\.DS_Store" />
+    <None Include="wwwroot\carbook-UI\js\.DS_Store" />
+    <None Include="wwwroot\carbook-UI\scss\.DS_Store" />
+    <None Include="wwwroot\carbook-UI\scss\bootstrap\.DS_Store" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+  </ItemGroup>
+
 </Project>

@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Mediator.Commands.SocialMediaCommands
 {
-	public class RemoveaSocialMediaCommand:IRequest
+	public class RemoveSocialMediaCommand:IRequest
 	{
 		public int Id { get; set; }
 
-		public RemoveaSocialMediaCommand(int id)
+		public RemoveSocialMediaCommand(int id)
 		{
 			Id = id;
 		}

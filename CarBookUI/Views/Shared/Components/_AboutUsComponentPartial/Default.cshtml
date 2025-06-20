@@ -1,18 +1,23 @@
-﻿<section class="ftco-section ftco-about">
-	<div class="container">
-		<div class="row no-gutters">
-			<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(/carbook-UI/images/about.jpg);">
-			</div>
-			<div class="col-md-6 wrap-about ftco-animate">
-				<div class="heading-section heading-section-white pl-md-5">
-					<span class="subheading">Hakkımızda</span>
-					<h2 class="mb-4">Özgürlüğünüzün Anahtarı Bizde.</h2>
+﻿@model List<ResultAboutDto>
 
-					<p>Yılların birikimiyle, yolların ve keşiflerin coşkusunu her an yanınızda taşıyoruz. Hayatın ritmine ayak uyduran, her biri titizlikle bakımdan geçmiş geniş araç yelpazemizle, ister iş ister tatil amaçlı olsun, her yolculuğunuzu eşsiz bir deneyime dönüştürüyoruz. Şehrin dinamik sokaklarından sakin kasabalara, gizli kalmış cennet koylarından görkemli dağ geçitlerine uzanan her rotada, en güvenilir yol arkadaşınız olmaktan gurur duyuyoruz.</p>
-					<p>Müşteri memnuniyeti odaklı hizmet anlayışımızla, araç kiralama sürecinizi olabildiğince basitleştiriyor, hayallerinizdeki araca en hızlı ve kolay şekilde ulaşmanızı sağlıyoruz. Uzman ekibimizle, 7/24 kesintisiz destek sunarak, yolculuğunuz boyunca her türlü ihtiyacınızda yanınızdayız. Unutulmaz anılar biriktirirken, yolda sadece siz ve özgürlük kalsın. Güvenliğiniz ve konforunuz bizim önceliğimizdir.</p>
-					<p><a href="#" class="btn btn-primary py-3 px-4">Sürücü Kiralayın </a></p>
+<section class="ftco-section ftco-about">
+	<div class="container">
+		@foreach (var item in Model)
+		{
+			<div class="row no-gutters">
+				<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(@item.ImageUrl);">
+				</div>
+				<div class="col-md-6 wrap-about ftco-animate">
+					<div class="heading-section heading-section-white pl-md-5">
+						<span class="subheading">Hakkımızda</span>
+						<h2 class="mb-4">@item.Title</h2>
+
+						<p>@item.Description</p>
+						<p></p>
+						<p><a href="#" class="btn btn-primary py-3 px-4">Araç Kiralayın </a></p>
+					</div>
 				</div>
 			</div>
-		</div>
+		}
 	</div>
 </section>

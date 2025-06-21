@@ -39,5 +39,25 @@ namespace Persistance.Repositories.CarRepositories
 			return values;
 
 		}
+
+		public async Task<List<GetLast5CarsWithBrandQueryResult>> GetLast5CarsWithBrandQueryResult()
+		{
+			var values = await _context.Cars.Include(x=>x.Brand).OrderByDescending(z=>z.CarID).Take(5).ToListAsync();
+			return values.Select(x=> new GetLast5CarsWithBrandQueryResult
+			{
+				CarID = x.CarID,
+				BigImageUrl= x.BigImageUrl,
+				BrandID = x.BrandID,	
+				CoverImageUrl = x.CoverImageUrl,
+				Fuel = x.Fuel,
+				Km = x.Km,
+				Luggage= x.Luggage,
+				Model = x.Model,
+				Seat = x.Seat,
+				Transmission = x.Transmission,
+				Name=x.Brand.Name,
+			
+			}).ToList();
+		}
 	}
 }

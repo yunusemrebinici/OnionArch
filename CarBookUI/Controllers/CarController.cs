@@ -22,7 +22,7 @@ namespace CarBookUI.Controllers
 			if (reponseMessage.IsSuccessStatusCode)
 			{
 				var json = await reponseMessage.Content.ReadAsStringAsync();
-				var values = JsonConvert.DeserializeObject<List<ResultCarWithBrandDto>>(json);
+				var values = JsonConvert.DeserializeObject<List<ResultCarWithBrandAndPriceDto>>(json);
 				return View(values);
 			}
 

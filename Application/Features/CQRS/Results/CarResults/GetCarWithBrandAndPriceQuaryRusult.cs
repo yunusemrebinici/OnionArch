@@ -7,11 +7,9 @@ using System.Threading.Tasks;
 
 namespace Application.Features.CQRS.Results.CarResults
 {
-	public class GetCarWithBrandQuaryRusult
+	public class GetCarWithBrandAndPriceQuaryRusult
 	{
 		public int CarID { get; set; }
-
-		public int BrandID { get; set; }
 
 		public string Name { get; set; }
 
@@ -19,16 +17,7 @@ namespace Application.Features.CQRS.Results.CarResults
 
 		public string CoverImageUrl { get; set; }
 
-		public int Km { get; set; }
+		public decimal CarPricing { get; set; }
 
-		public string Transmission { get; set; }
-
-		public byte Seat { get; set; }
-
-		public byte Luggage { get; set; }
-
-		public string Fuel { get; set; }
-
-		public string BigImageUrl { get; set; }
 	}
 }

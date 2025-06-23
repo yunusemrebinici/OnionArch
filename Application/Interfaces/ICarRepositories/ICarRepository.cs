@@ -9,7 +9,7 @@ namespace Application.Interfaces.ICarRepositories
 {
 	public interface ICarRepository
 	{
-		Task<List<GetCarWithBrandQuaryRusult>> GetCarWithBrand();
+		Task<List<GetCarWithBrandAndPriceQuaryRusult>> GetCarWithBrand();
 
 		Task<List<GetLast5CarsWithBrandQueryResult>> GetLast5CarsWithBrandQueryResult();
 	}

@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace Application.Features.CQRS.Handlers.CarHandlers
 {
-	public class GetCarWithBrandQueryHandler
+	public class GetCarWithBrandAndPriceQueryHandler
 	{
 		private readonly ICarRepository _carRepository;
 
-		public GetCarWithBrandQueryHandler(ICarRepository carRepository)
+		public GetCarWithBrandAndPriceQueryHandler(ICarRepository carRepository)
 		{
 			_carRepository = carRepository;
 		}
 
-		public async Task<List<GetCarWithBrandQuaryRusult>> Handle()
+		public async Task<List<GetCarWithBrandAndPriceQuaryRusult>> Handle()
 		{		
 			return await _carRepository.GetCarWithBrand();
 		}

@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace DTO.CarDtos
 {
-	public class ResultCarWithBrandDto
+	public class ResultCarWithBrandAndPriceDto
 	{
 		public int CarID { get; set; }
-
-		public int BrandID { get; set; }
 
 		public string Name { get; set; }
 
@@ -18,16 +16,6 @@ namespace DTO.CarDtos
 
 		public string CoverImageUrl { get; set; }
 
-		public int Km { get; set; }
-
-		public string Transmission { get; set; }
-
-		public byte Seat { get; set; }
-
-		public byte Luggage { get; set; }
-
-		public string Fuel { get; set; }
-
-		public string BigImageUrl { get; set; }
+		public decimal CarPricing { get; set; }
 	}
 }

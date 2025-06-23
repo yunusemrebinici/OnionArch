@@ -15,7 +15,7 @@ namespace CarBook.WebApi.Controllers
 		private readonly GetCarQueryHandler _getCarQueryHandler;
 		private readonly RemoveCarCommandHandler _removeCarCommandHandler;
 		private readonly UpdateCarCommandHandler _updateCarCommandHandler;
-		private readonly GetCarWithBrandQueryHandler _getCarWithBrandQueryHandler;
+		private readonly GetCarWithBrandAndPriceQueryHandler _getCarWithBrandQueryHandler;
 		private readonly GetLast5CarsWithBrandQueryHandler _getLast5CarsWithBrandQueryHandler;
 
 		public CarsController(
@@ -24,7 +24,7 @@ namespace CarBook.WebApi.Controllers
 			GetCarQueryHandler getCarQueryHandler,
 			RemoveCarCommandHandler removeCarCommandHandler,
 			UpdateCarCommandHandler updateCarCommandHandler,
-			GetCarWithBrandQueryHandler getCarWithBrandQueryHandler,
+			GetCarWithBrandAndPriceQueryHandler getCarWithBrandQueryHandler,
 			GetLast5CarsWithBrandQueryHandler getLast5CarsWithBrandQueryHandler)
 		{
 			_createCommandHandler = createCommandHandler;

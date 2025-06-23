@@ -19,44 +19,38 @@ namespace Persistance.Repositories.CarRepositories
 			_context = context;
 		}
 
-		public async Task<List<GetCarWithBrandQuaryRusult>> GetCarWithBrand()
+		public async Task<List<GetCarWithBrandAndPriceQuaryRusult>> GetCarWithBrand()
 		{
-			var values = await _context.Cars.Include(c => c.Brand).Select(y => new GetCarWithBrandQuaryRusult
+			var values = await _context.CarPricings.Include(x => x.Car).ThenInclude(z => z.Brand).Where(x => x.PricingID == 2).ToListAsync();
+			return values.Select(y => new GetCarWithBrandAndPriceQuaryRusult
 			{
 				CarID = y.CarID,
-				Name = y.Brand.Name,
-				BigImageUrl = y.BigImageUrl,
-				BrandID = y.BrandID,
-				CoverImageUrl = y.CoverImageUrl,
-				Fuel = y.Fuel,
-				Km = y.Km,
-				Luggage = y.Luggage,
-				Model = y.Model,
-				Seat = y.Seat,
-				Transmission = y.Transmission,
+				CarPricing = y.Amount,
+				CoverImageUrl = y.Car.CoverImageUrl,
+				Model = y.Car.Model,
+				Name = y.Car.Brand.Name,
+			}).ToList();
 
-			}).ToListAsync();
-			return values;
 
 		}
 
 		public async Task<List<GetLast5CarsWithBrandQueryResult>> GetLast5CarsWithBrandQueryResult()
 		{
-			var values = await _context.Cars.Include(x=>x.Brand).OrderByDescending(z=>z.CarID).Take(5).ToListAsync();
-			return values.Select(x=> new GetLast5CarsWithBrandQueryResult
+			var values = await _context.Cars.Include(x => x.Brand).OrderByDescending(z => z.CarID).Take(5).ToListAsync();
+			return values.Select(x => new GetLast5CarsWithBrandQueryResult
 			{
 				CarID = x.CarID,
-				BigImageUrl= x.BigImageUrl,
-				BrandID = x.BrandID,	
+				BigImageUrl = x.BigImageUrl,
+				BrandID = x.BrandID,
 				CoverImageUrl = x.CoverImageUrl,
 				Fuel = x.Fuel,
 				Km = x.Km,
-				Luggage= x.Luggage,
+				Luggage = x.Luggage,
 				Model = x.Model,
 				Seat = x.Seat,
 				Transmission = x.Transmission,
-				Name=x.Brand.Name,
-			
+				Name = x.Brand.Name,
+
 			}).ToList();
 		}
 	}

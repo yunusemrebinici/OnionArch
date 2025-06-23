@@ -30,5 +30,7 @@ namespace Persistance.Context
 		public DbSet<Services> Services { get; set; }
 		public DbSet<SocialMedia> SocialMedias { get; set; }
 		public DbSet<Testimonial> Testimonials { get; set; }
+		public DbSet<Blog> Blogs { get; set; }
+		public DbSet<Author> Authors { get; set; }
 	}
 }

@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace Application.Features.Mediator.Results.BlogResults
 {
-	public class Blog
+	public class GetBlogByIdQueryResult
 	{
 		public int BlogID { get; set; }
 
@@ -22,11 +23,7 @@ namespace Domain.Entities
 
 		public int AuthorID { get; set; }
 
-		public Author Author { get; set; }
-
 		public int CategoryID { get; set; }
-
-		public  Category Category { get; set; }
-
+	
 	}
 }

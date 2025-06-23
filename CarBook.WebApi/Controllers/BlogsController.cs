@@ -8,11 +8,11 @@ namespace CarBook.WebApi.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	public class BlogController : ControllerBase
+	public class BlogsController : ControllerBase
 	{
 		private readonly IMediator _mediator;
 
-		public BlogController(IMediator mediator)
+		public BlogsController(IMediator mediator)
 		{
 			_mediator = mediator;
 		}

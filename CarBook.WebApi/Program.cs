@@ -12,6 +12,7 @@ using Persistance.Context;
 using Persistance.Repositories;
 using Persistance.Repositories.BlogRepositories;
 using Persistance.Repositories.CarRepositories;
+using Persistance.Repositories.TagRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,7 @@ builder.Services.AddScoped<CarBookContext>();
 builder.Services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
 builder.Services.AddScoped(typeof(ICarRepository), typeof(CarRepository));
 builder.Services.AddScoped<IBlogRepository,BlogRepository>();
+builder.Services.AddScoped<ITagRepository,TagRepository>();
 
 
 builder.Services.AddScoped<CreateAboutCommandHandler>();

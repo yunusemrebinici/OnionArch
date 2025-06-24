@@ -30,5 +30,11 @@ namespace CarBookUI.Controllers
 			return View();
 		}
 
+		public async Task<IActionResult> BlogDetail(int id)
+		{
+			ViewBag.v1 = "Blog";
+			ViewBag.Id=id;
+			return View();
+		}
 	}
 }

@@ -19,19 +19,36 @@ namespace Persistance.Repositories.BlogRepositories
 			_context = context;
 		}
 
+		public async Task<List<GetAllBlogsWithAuthorQueryResult>> GetAllBlogsWithAuthor()
+		{
+			var values = await _context.Blogs.Include(b => b.Author).ToListAsync();
+			return values.Select(x => new GetAllBlogsWithAuthorQueryResult
+			{
+				BlogID = x.BlogID,
+				AuthorName = x.Author.Name,
+				CoverImage = x.CoverImage,
+				Title = x.Title,
+				Description = x.Description,
+				Date = x.Date,	
+				ViewCount = x.ViewCount,
+
+
+			}).ToList();
+		}
+
 		public async Task<List<GetLast3BlogsWithAuthorQueryResult>> GetLast3Blogs()
 		{
-			var values = await _context.Blogs.Include(x=>x.Author).OrderByDescending(x=>x.BlogID).Take(3).ToListAsync();
-			return values.Select(y=>new GetLast3BlogsWithAuthorQueryResult
+			var values = await _context.Blogs.Include(x => x.Author).OrderByDescending(x => x.BlogID).Take(3).ToListAsync();
+			return values.Select(y => new GetLast3BlogsWithAuthorQueryResult
 			{
 				BlogID = y.BlogID,
-				AuthorName=y.Author.Name,
+				AuthorName = y.Author.Name,
 				CoverImage = y.CoverImage,
 				Date = y.Date,
 				Description = y.Description,
 				Title = y.Title,
-				ViewCount=y.ViewCount,
-				
+				ViewCount = y.ViewCount,
+
 			}).ToList();
 		}
 	}

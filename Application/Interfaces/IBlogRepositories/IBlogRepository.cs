@@ -10,5 +10,7 @@ namespace Application.Interfaces.IBlogRepositories
 	public interface IBlogRepository
 	{
 		Task<List<GetLast3BlogsWithAuthorQueryResult>> GetLast3Blogs();
+
+		Task<List<GetAllBlogsWithAuthorQueryResult>>GetAllBlogsWithAuthor();
 	}
 }

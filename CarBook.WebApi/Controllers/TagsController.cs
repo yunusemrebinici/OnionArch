@@ -24,6 +24,14 @@ namespace CarBook.WebApi.Controllers
 		{
 			return Ok(await _mediator.Send(new GetTagByBlogIdQuery(id)));
 		}
+
+		[HttpGet]
+		public async Task<IActionResult> TagList()
+		{
+			return Ok(await _mediator.Send(new GetTagQuery()));
+		}
+
+		
 	
 	}
 }

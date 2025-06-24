@@ -12,5 +12,7 @@ namespace Application.Interfaces.IBlogRepositories
 		Task<List<GetLast3BlogsWithAuthorQueryResult>> GetLast3Blogs();
 
 		Task<List<GetAllBlogsWithAuthorQueryResult>>GetAllBlogsWithAuthor();
+
+		Task<GetAuthorByBlogIdQueryResult> GetAuthorByBlogId(int blogid);
 	}
 }

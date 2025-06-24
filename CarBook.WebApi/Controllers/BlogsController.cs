@@ -40,6 +40,11 @@ namespace CarBook.WebApi.Controllers
 		{
 			return Ok(await _mediator.Send(new GetAllBlogsWithAuthorQuery()));
 		}
+		[HttpGet("GetAuthorByBlogId/{id}")]
+		public async Task<IActionResult>GetAuthorByBlogId(int id)
+		{
+			return Ok(await _mediator.Send(new GetAuthorByBlogIdQuery(id)));
+		}
 
 		[HttpPost]
 		public async Task<IActionResult> CreateBlog(CreateBlogCommand command)

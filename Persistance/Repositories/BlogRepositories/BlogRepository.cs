@@ -29,11 +29,24 @@ namespace Persistance.Repositories.BlogRepositories
 				CoverImage = x.CoverImage,
 				Title = x.Title,
 				Description = x.Description,
-				Date = x.Date,	
+				Date = x.Date,
 				ViewCount = x.ViewCount,
 
 
 			}).ToList();
+		}
+
+		public async Task<GetAuthorByBlogIdQueryResult> GetAuthorByBlogId(int blogid)
+		{
+			var value = await _context.Blogs.Include(x => x.Author).FirstOrDefaultAsync(y => y.BlogID == blogid);
+			return new GetAuthorByBlogIdQueryResult
+			{
+				CoverImage = value.Author.CoverImage,
+				Name = value.Author.Name,
+				Description = value.Author.Description,
+			};
+
+
 		}
 
 		public async Task<List<GetLast3BlogsWithAuthorQueryResult>> GetLast3Blogs()

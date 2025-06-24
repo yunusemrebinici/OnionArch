@@ -28,5 +28,7 @@ namespace Domain.Entities
 
 		public  Category Category { get; set; }
 
+		public List<BlogTags> BlogTags { get; set; }
+
 	}
 }

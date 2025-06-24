@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistance.Context;
 
@@ -11,9 +12,11 @@ using Persistance.Context;
 namespace Persistance.Migrations
 {
     [DbContext(typeof(CarBookContext))]
-    partial class CarBookContextModelSnapshot : ModelSnapshot
+    [Migration("20250624142806_add_tag_blogtags")]
+    partial class add_tag_blogtags
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -126,6 +129,9 @@ namespace Persistance.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("TagID")
+                        .HasColumnType("int");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -138,6 +144,8 @@ namespace Persistance.Migrations
                     b.HasIndex("AuthorID");
 
                     b.HasIndex("CategoryID");
+
+                    b.HasIndex("TagID");
 
                     b.ToTable("Blogs");
                 });
@@ -542,6 +550,10 @@ namespace Persistance.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Domain.Entities.Tag", null)
+                        .WithMany("Blogs")
+                        .HasForeignKey("TagID");
+
                     b.Navigation("Author");
 
                     b.Navigation("Category");
@@ -556,7 +568,7 @@ namespace Persistance.Migrations
                         .IsRequired();
 
                     b.HasOne("Domain.Entities.Tag", "Tag")
-                        .WithMany("BlogTags")
+                        .WithMany()
                         .HasForeignKey("TagID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -662,7 +674,7 @@ namespace Persistance.Migrations
 
             modelBuilder.Entity("Domain.Entities.Tag", b =>
                 {
-                    b.Navigation("BlogTags");
+                    b.Navigation("Blogs");
                 });
 #pragma warning restore 612, 618
         }

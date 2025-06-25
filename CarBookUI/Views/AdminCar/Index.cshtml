@@ -1,8 +1,48 @@
-﻿
+﻿@model List<ResultCarListWithBrandAdminDto>
 @{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/UIAdmin/Index.cshtml";
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/UIAdmin/Index.cshtml";
 }
 
-<h1>MERHABA</h1>
+<div>
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Striped rows</h4>
+
+			<div class="table-responsive">
+				<table class="table table-striped mb-0">
+
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Model</th>
+							<th>Marka</th>
+							<th>Fiyat</th>
+							<th>Ekle</th>
+							<th>Sil</th>
+						</tr>
+					</thead>
+					<tbody>
+
+						@foreach (var item in Model)
+						{
+							<tr>
+								<th scope="row">@item.carID</th>
+								<td>@item.model</td>
+								<td>@item.name</td>
+								<td>@item.carPricing</td>
+								<td><a href="" class="btn btn-success">Ekle</a></td>
+								<td><a href="" class="btn btn-danger">Sil</a></td>
+							   
+							</tr>
+						}
+
+					</tbody>
+				</table>
+			</div> <!-- end table-responsive-->
+		</div>
+		<!-- end card-body-->
+	</div>
+	<!-- end card -->
+</div>
 

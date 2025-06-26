@@ -1,23 +1,24 @@
-﻿
-@model CreateCarDto
+﻿@model UpdateCarAdminDto
 @{
-	ViewData["Title"] = "CreateCar";
+	ViewData["Title"] = "UpdateCar";
 	Layout = "~/Views/UIAdmin/Index.cshtml";
 }
 
+
 <div class="card">
-	<div class="card-body">	
+	<div class="card-body">
 		<p class="card-subtitle mb-4">Araba Ekleme Sayfası</p>
 		<form method="post">
 
+			@Html.HiddenFor(x => x.CarID)
 			<div class="form-group">
 				<label for="exampleInputEmail1">Model</label>
-				<input type="text" class="form-control"  asp-for="model">	
+				<input type="text" class="form-control" asp-for="model">
 			</div>
 			<br />
 			<div class="form-group">
 				<label for="exampleInputEmail1">Marka</label>
-				@Html.DropDownListFor(x=>x.brandID,(List<SelectListItem>)ViewBag.Brand,new{@class="form-control"})
+				@Html.DropDownListFor(x => x.brandID, (List<SelectListItem>)ViewBag.Brand, new { @class = "form-control" })
 			</div>
 			<br />
 			<div class="form-group">
@@ -47,30 +48,16 @@
 				<label for="exampleInputEmail1">Yakıt Türü</label>
 				<input type="text" class="form-control" asp-for="Fuel">
 			</div>
-			
+
 			<div class="form-group">
 				<label for="exampleInputEmail1">Kapak Görseli</label>
 				<input type="text" class="form-control" asp-for="BigImageUrl">
 			</div>
 			<br />
-			<div class="form-group">
-				<label for="exampleInputEmail1">Günlük Ücreti</label>
-				<input type="number" class="form-control" asp-for="DayCarPricing">
-			</div>
-			<br />
-			<div class="form-group">
-				<label for="exampleInputEmail1">Haftalık Ücreti</label>
-				<input type="number" class="form-control" asp-for="WeekCarPricing">
-			</div>
-			<br />
-			<div class="form-group">
-				<label for="exampleInputEmail1">Aylık Ücreti</label>
-				<input type="number" class="form-control" asp-for="MonthCarPricing">
-			</div>
 
-			<button class="btn btn-primary">Kaydet</button>
-	
+			<button class="btn btn-primary">Güncelle</button>
+
 		</form>
-		
-	</div> 
+
+	</div>
 </div>

@@ -21,15 +21,15 @@ namespace Persistance.Repositories.CarRepositories
 
 		public async Task<List<GetCarWithBrandAndPriceQuaryRusult>> GetCarWithBrand()
 		{
-			var values = await _context.CarPricings.Include(x => x.Car).ThenInclude(z => z.Brand).ToListAsync();
+			var values = await _context.Cars.Include(c => c.Brand).Include(x=>x.CarPricing).ToListAsync();
 			return values.Select(y => new GetCarWithBrandAndPriceQuaryRusult
 			{
 				CarID = y.CarID,
-				BrandID = y.Car.BrandID,
-				CarPricing = y.Amount,
-				CoverImageUrl = y.Car.CoverImageUrl,
-				Model = y.Car.Model,
-				Name = y.Car.Brand.Name,
+				BrandID = y.BrandID,
+				CarPricing = y.CarPricing.Where(x=>x.CarID==y.CarID).Select(z=>z.Amount).FirstOrDefault(),
+				CoverImageUrl = y.CoverImageUrl,
+				Model = y.Model,
+				Name = y.Brand.Name,
 			}).ToList();
 
 

@@ -12,5 +12,7 @@ namespace Application.Interfaces.ICarRepositories
 		Task<List<GetCarWithBrandAndPriceQuaryRusult>> GetCarWithBrand();
 
 		Task<List<GetLast5CarsWithBrandQueryResult>> GetLast5CarsWithBrandQueryResult();
+
+		Task <int> GetLastCarById();
 	}
 }

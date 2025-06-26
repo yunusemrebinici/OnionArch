@@ -54,5 +54,11 @@ namespace Persistance.Repositories.CarRepositories
 
 			}).ToList();
 		}
+
+		public async Task<int> GetLastCarById()
+		{
+			var values= await _context.Cars.OrderByDescending(x=>x.CarID).Select(x=>x.CarID).FirstOrDefaultAsync();
+			return values;
+		}
 	}
 }

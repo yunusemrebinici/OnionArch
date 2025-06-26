@@ -13,7 +13,7 @@ namespace CarBookUI.Controllers
 			_httpClientFactory = httpClientFactory;
 		}
 
-		[HttpGet]
+		
 		public async Task<IActionResult> Index()
 		{
 			var client = _httpClientFactory.CreateClient();
@@ -24,6 +24,19 @@ namespace CarBookUI.Controllers
 				var values = JsonConvert.DeserializeObject<List<ResultCarListWithBrandAdminDto>>(json);
 				return View(values);
 			}
+			return View();
+		}
+
+		[HttpGet]
+		public async Task<IActionResult> CreateCar()
+		{
+			
+			return View();
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> CreateCar(CreateCarDto createCar)
+		{
 			return View();
 		}
 	}

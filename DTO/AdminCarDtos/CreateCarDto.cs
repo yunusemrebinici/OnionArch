@@ -6,19 +6,14 @@ using System.Threading.Tasks;
 
 namespace DTO.AdminCarDtos
 {
-	public class ResultCarListWithBrandAdminDto
+	public class CreateCarDto
 	{
-		public int carID { get; set; }
-
 		public int brandID { get; set; }
-
-		public string name { get; set; }
 
 		public string model { get; set; }
 
 		public string coverImageUrl { get; set; }
 
 		public decimal carPricing { get; set; }
-
 	}
 }

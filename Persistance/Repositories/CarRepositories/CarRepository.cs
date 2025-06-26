@@ -25,6 +25,7 @@ namespace Persistance.Repositories.CarRepositories
 			return values.Select(y => new GetCarWithBrandAndPriceQuaryRusult
 			{
 				CarID = y.CarID,
+				BrandID = y.Car.BrandID,
 				CarPricing = y.Amount,
 				CoverImageUrl = y.Car.CoverImageUrl,
 				Model = y.Car.Model,

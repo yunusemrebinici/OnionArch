@@ -61,7 +61,7 @@ namespace CarBookUI.Controllers
 			if (responseMessage.IsSuccessStatusCode)
 			{
 
-				return RedirectToAction("Index");
+				return RedirectToAction("Index","AdminCar");
 
 			}
 

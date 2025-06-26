@@ -21,7 +21,7 @@ namespace Persistance.Repositories.CarRepositories
 
 		public async Task<List<GetCarWithBrandAndPriceQuaryRusult>> GetCarWithBrand()
 		{
-			var values = await _context.CarPricings.Include(x => x.Car).ThenInclude(z => z.Brand).Where(x => x.PricingID == 2).ToListAsync();
+			var values = await _context.CarPricings.Include(x => x.Car).ThenInclude(z => z.Brand).ToListAsync();
 			return values.Select(y => new GetCarWithBrandAndPriceQuaryRusult
 			{
 				CarID = y.CarID,

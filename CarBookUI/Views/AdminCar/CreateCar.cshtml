@@ -8,7 +8,7 @@
 <div class="card">
 	<div class="card-body">	
 		<p class="card-subtitle mb-4">Araba Ekleme Sayfası</p>
-		<form>
+		<form method="post">
 
 			<div class="form-group">
 				<label for="exampleInputEmail1">Model</label>
@@ -29,10 +29,39 @@
 				<label for="exampleInputEmail1">Fiyat</label>
 				<input type="number" class="form-control" asp-for="carPricing">
 			</div>
+			<br />
+			<div class="form-group">
+				<label for="exampleInputEmail1">Kilometre</label>
+				<input type="number" class="form-control" asp-for="Km">
+			</div>
+			<br />
+			<div class="form-group">
+				<label for="exampleInputEmail1">Vites</label>
+				<input type="text" class="form-control" asp-for="Transmission">
+			</div>
+			<br />
+			<div class="form-group">
+				<label for="exampleInputEmail1">Koltuk</label>
+				<input type="number" class="form-control" asp-for="Seat">
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Bagaj</label>
+				<input type="number" class="form-control" asp-for="Luggage">
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Yakıt Türü</label>
+				<input type="text" class="form-control" asp-for="Fuel">
+			</div>
 			
-			<button type="submit" class="btn btn-primary waves-effect waves-light">Kaydet</button>
-		</form>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Kapak Görseli</label>
+				<input type="text" class="form-control" asp-for="BigImageUrl">
+			</div>
 
+			<button class="btn btn-primary">Kaydet</button>
+	
+		</form>
+		
 	</div> 
 </div>
 

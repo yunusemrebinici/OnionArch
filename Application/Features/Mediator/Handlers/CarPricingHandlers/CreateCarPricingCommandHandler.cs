@@ -25,7 +25,7 @@ namespace Application.Features.Mediator.Handlers.CarPricingHandlers
 			{
 				Amount = request.Amount,
 				CarID = request.CarID,
-				CarPricingID = request.CarID,
+				PricingID = request.PricingID,
 
 			});
 		}

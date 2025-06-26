@@ -23,6 +23,7 @@ namespace Application.Features.Mediator.Handlers.CarPricingHandlers
 		{
 			await _repository.UpdateAsync(new CarPricing
 			{
+				CarPricingID = request.CarPricingID,
 				Amount = request.Amount,
 				CarID = request.CarID,
 				PricingID = request.PricingID,

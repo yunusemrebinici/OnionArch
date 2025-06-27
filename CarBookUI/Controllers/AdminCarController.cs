@@ -61,63 +61,11 @@ namespace CarBookUI.Controllers
 			var responseMessage = await client.PostAsync("https://localhost:7217/api/Cars", content);
 			if (responseMessage.IsSuccessStatusCode)
 			{
-
-				//Car tablosuna son eklenen arabanın Id`numarasını çekip günlük haftalık ve aylık ücretini ekliyoruz.
-
-				var getbyLastCarId = await client.GetAsync("https://localhost:7217/api/Cars/GetLastCarById");
-				var json = await getbyLastCarId.Content.ReadAsStringAsync();
-				var id = JsonConvert.DeserializeObject<int>(json);
-
-				#region AddCarPricingTableDay
-				CreateCarPricingAdminDto create = new CreateCarPricingAdminDto()
-				{
-					amount = createCar.DayCarPricing,
-					carID = id,
-					pricingID = 2
-				};
-				var dayJson = JsonConvert.SerializeObject(create);
-				StringContent dayContant = new StringContent(dayJson, Encoding.UTF8, "application/json");
-				var dayMessage = await client.PostAsync("https://localhost:7217/api/CarPricing", dayContant);
-
-				#endregion
-
-				#region AddCarPricingTableWeek
-				CreateCarPricingAdminDto create2 = new CreateCarPricingAdminDto()
-				{
-					amount = createCar.WeekCarPricing,
-					carID = id,
-					pricingID = 3
-				};
-				var weekJson = JsonConvert.SerializeObject(create2);
-				StringContent weekContant = new StringContent(weekJson, Encoding.UTF8, "application/json");
-				var weekMessage = await client.PostAsync("https://localhost:7217/api/CarPricing", weekContant);
-
-				#endregion
-
-				#region AddCarPricingTableMonth
-				CreateCarPricingAdminDto create3 = new CreateCarPricingAdminDto()
-				{
-					amount = createCar.MonthCarPricing,
-					carID = id,
-					pricingID = 4
-				};
-				var monthJson = JsonConvert.SerializeObject(create3);
-				StringContent monthContant = new StringContent(monthJson, Encoding.UTF8, "application/json");
-				var monthMessage = await client.PostAsync("https://localhost:7217/api/CarPricing", monthContant);
-
-				#endregion
-
-				if (monthMessage.IsSuccessStatusCode)
-				{
-					return RedirectToAction("Index");
-				}
-
-
+				return RedirectToAction("Index");
 			}
-
+			
 			return View();
 		}
-
 
 		public async Task<IActionResult> DeleteCar(int id)
 		{

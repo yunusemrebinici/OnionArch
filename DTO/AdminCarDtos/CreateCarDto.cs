@@ -14,12 +14,6 @@ namespace DTO.AdminCarDtos
 
 		public string coverImageUrl { get; set; }
 
-		public decimal DayCarPricing { get; set; }
-
-		public decimal WeekCarPricing { get; set; }
-
-		public decimal MonthCarPricing { get; set; }
-
 		public int Km { get; set; }
 
 		public string Transmission { get; set; }

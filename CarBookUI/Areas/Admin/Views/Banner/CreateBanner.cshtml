@@ -1,0 +1,42 @@
+﻿@model CreateBannerAdminDto
+@{
+    ViewData["Title"] = "CreateBanner";
+    Layout = "~/Views/UIAdmin/Index.cshtml";
+}
+
+<div class="card">
+	<div class="card-body">
+		<p class="card-subtitle mb-4">Banner Ekleme Sayfası</p>
+		<form method="post">
+
+			<div class="form-group">
+				<label for="exampleInputEmail1">Başlık</label>
+				<input type="text" class="form-control" asp-for="Title">
+			</div>
+			<br />
+
+			<div class="form-group">
+				<label for="exampleInputEmail1">Açıklama</label>
+				<input type="text" class="form-control" asp-for="Description">
+			</div>
+			<br />
+
+			<div class="form-group">
+				<label for="exampleInputEmail1">Video Başlığı</label>
+				<input type="text" class="form-control" asp-for="VideoDescription">
+			</div>
+			<br />
+
+			<div class="form-group">
+				<label for="exampleInputEmail1">VideoURL</label>
+				<input type="text" class="form-control" asp-for="VideoUrl">
+			</div>
+			<br />
+
+			<button class="btn btn-primary">Kaydet</button>
+
+		</form>
+
+	</div>
+</div>
+

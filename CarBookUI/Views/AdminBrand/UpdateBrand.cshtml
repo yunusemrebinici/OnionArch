@@ -1,0 +1,26 @@
+﻿@model UpdateBrandAdminDto
+@{
+    ViewData["Title"] = "UpdateBrand";
+    Layout = "~/Views/UIAdmin/Index.cshtml";
+}
+
+<div class="card">
+	<div class="card-body">
+		<p class="card-subtitle mb-4">Marka Güncelleme Sayfası</p>
+		<form method="post">
+			@Html.HiddenFor(x=>x.brandID)
+
+			<div class="form-group">
+				<label for="exampleInputEmail1">Model</label>
+				<input type="text" class="form-control" asp-for="name">
+			</div>
+			<br />
+
+
+			<button class="btn btn-primary">Güncelle</button>
+
+		</form>
+
+	</div>
+</div>
+

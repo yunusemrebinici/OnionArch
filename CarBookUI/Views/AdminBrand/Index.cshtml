@@ -1,0 +1,46 @@
+﻿@model List<ResultBrandInAdminDto>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/UIAdmin/Index.cshtml";
+	int count = 0;
+}
+
+<div>
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Striped rows</h4>
+
+			<div class="table-responsive">
+				<table class="table table-striped mb-0">
+
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Marka</th>
+							<th>Güncelle</th>
+
+						</tr>
+					</thead>
+					<tbody>
+
+						@foreach (var item in Model)
+						{
+							count++;
+							<tr>
+								<th scope="row">@count</th>
+								<td>@item.name</td>
+								<td><a href="/AdminBrand/UpdateBrand/@item.brandID" class="btn btn-success">Güncelle</a></td>
+
+							</tr>
+						}
+
+					</tbody>
+				</table>
+				<td>
+					<a href="/AdminBrand/CreateBrand/" class="btn btn-primary">Ekle</a>
+				</td>
+			</div>
+		</div>
+	</div>
+
+</div>

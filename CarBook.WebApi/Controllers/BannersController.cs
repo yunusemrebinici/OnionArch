@@ -3,6 +3,7 @@ using Application.Features.CQRS.Handlers.BannerHandlers;
 using Application.Features.CQRS.Queries.BannerQuaries;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace CarBook.WebApi.Controllers
 {
@@ -37,15 +38,15 @@ namespace CarBook.WebApi.Controllers
 		}
 
 		[HttpGet("{id}")]
-		public async Task<IActionResult>GetBanner(int id)
+		public async Task<IActionResult> GetBanner(int id)
 		{
 			return Ok(await _getBannerByIdQuery.Handle(new GetBannerByIdQuary(id)));
 		}
 
 		[HttpPost]
-		public async Task<IActionResult>CreateBanner(CreateBannerCommand command)
+		public async Task<IActionResult> CreateBanner(CreateBannerCommand command)
 		{
-	        await _createBanner.Handle(command);
+			await _createBanner.Handle(command);
 			return Ok("Banner Ekleme Başarılı");
 		}
 
@@ -56,9 +57,11 @@ namespace CarBook.WebApi.Controllers
 			return Ok("Güncelleme Başarılı");
 		}
 
-		[HttpDelete]
-		public async Task<IActionResult> RemoveBanner(RemoveBannerCommand command)
+		[HttpDelete("{id}")]
+		public async Task<IActionResult> RemoveBanner(int id)
 		{
+			RemoveBannerCommand command = new RemoveBannerCommand(id);
+
 			await _removeBanner.Handle(command);
 			return Ok("Silme İşlemi Başarılı"); 
 			

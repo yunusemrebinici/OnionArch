@@ -1,7 +1,7 @@
 ﻿@model List<ResultBannerAdminDto>
 @{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/UIAdmin/Index.cshtml";
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/UIAdmin/Index.cshtml";
 }
 
 <div>
@@ -28,9 +28,9 @@
 
 						@foreach (var item in Model)
 						{
-						
+
 							<tr>
-							  
+
 								<td>@item.BannerID</td>
 								<td>@item.Title</td>
 								<td>@item.Description</td>

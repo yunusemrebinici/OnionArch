@@ -85,7 +85,18 @@ namespace CarBookUI.Areas.Admin.Controllers
 			return View();
 		}
 
-		public async Task<IActionResult>D
+		[HttpGet("{id}")]    
+		public async Task<IActionResult> DeleteBanner(int id)
+		{
+			var client = _httpClientFactory.CreateClient();	
+			var responseMessage = await client.DeleteAsync("https://localhost:7217/api/Banners/" + id);
+
+			if (responseMessage.IsSuccessStatusCode)
+			{
+				return RedirectToAction("Index");
+			}
+			return View();
+		}
 	}
 }
 

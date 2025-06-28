@@ -1,0 +1,39 @@
+﻿@model GetBlogDetailByIdAdminDto
+@{
+	ViewData["Title"] = "DetailBlog";
+	Layout = "~/Views/UIAdmin/Index.cshtml";
+}
+<div>
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Blog Kısmına Ait Veriler Bulunmaktadır</h4>
+
+			<div class="table-responsive">
+				<table class="table table-striped mb-0">
+
+					<tbody>
+
+						<tr>
+							<img src="@Model.coverImage" style="height:550px; width:850px;" />
+							<br />		
+							<th>@Model.title</th>
+						</tr>
+
+
+
+						<br />
+					<td>
+						<p>@Model.description</p>
+					</td>
+
+
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+	</div>
+
+</div>
+
+

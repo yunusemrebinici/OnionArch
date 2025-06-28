@@ -1,0 +1,63 @@
+﻿@model List<ResultBlogAdminDto>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/UIAdmin/Index.cshtml";
+}
+
+<div>
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Blog Kısmına Ait Veriler Bulunmaktadır</h4>
+
+			<div class="table-responsive">
+				<table class="table table-striped mb-0">
+
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Görsel</th>
+							<th>Yazar</th>
+							<th>Başlık</th>
+							<th>Açıklama</th>
+							<th>Tarih</th>
+							<th>Detaylar</th>
+							<th>Sil</th>
+						</tr>
+					</thead>
+					<tbody>
+
+						@foreach (var item in Model)
+						{
+
+							<tr>
+
+								<td>@item.BlogID</td>
+								<td><img src ="@item.CoverImage" style="height:60px;width:60px;"/></td>
+								<td>@item.AuthorName</td>
+								<td>@item.Title</td>
+								@if (item.Description.Length > 50)
+								{
+									<td>@item.Description.Substring(0,50) ..</td>
+								}
+								else
+								{
+									<td>@item.Description</td>
+								}
+								<td>@item.Date.ToString("dd-MMM-yyyy")</td>
+								<td><a href="/Admin/Blog/DetailBlog/@item.BlogID" class="btn btn-success">Blog Devamı</a></td>
+								<td><a href="/Admin/Blog/DeleteBlog/@item.BlogID" class="btn btn-danger">Kaldır</a></td>
+
+							</tr>
+						}
+
+					</tbody>
+				</table>
+				<td>
+					<a href="/Admin/Blog/CreateBlog/" class="btn btn-primary">Ekle</a>
+				</td>
+			</div>
+		</div>
+	</div>
+
+</div>
+

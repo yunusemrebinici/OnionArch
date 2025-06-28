@@ -60,7 +60,7 @@ namespace CarBook.WebApi.Controllers
 			return Ok("Güncelleme Başarılı");
 		}
 
-		[HttpDelete]
+		[HttpDelete("{id}")]
 		public async Task<IActionResult> RemoveBlog(int id)
 		{
 			await _mediator.Send(new RemoveBlogCommend(id));

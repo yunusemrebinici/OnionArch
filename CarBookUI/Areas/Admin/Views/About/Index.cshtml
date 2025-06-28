@@ -1,8 +1,8 @@
 ﻿@using DTO.AdminAboutDtos
 @model List<ResultAboutAdminDto>
 @{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/UIAdmin/Index.cshtml";
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/UIAdmin/Index.cshtml";
 }
 
 <div>
@@ -33,7 +33,15 @@
 
 								<td>@item.AboutID</td>
 								<td>@item.Title</td>
-								<td>@item.Description.Substring(0,50)</td>
+								@if (item.Description.Length > 50)
+								{
+									<td>@item.Description.Substring(0,50)</td>
+								}
+								else
+								{
+									<td>@item.Description</td>
+								}
+
 								<td>@item.ImageUrl</td>
 								<td><a href="/Admin/About/DeleteAbout/@item.AboutID" class="btn btn-danger">Sil</a></td>
 								<td><a href="/Admin/About/UpdateAbout/@item.AboutID" class="btn btn-success">Güncelle</a></td>

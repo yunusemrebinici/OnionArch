@@ -30,5 +30,9 @@ namespace Domain.Entities
 
 		public List<BlogTags> BlogTags { get; set; }
 
+		public int CommentID { get; set; }
+
+		public List<Comment> Comment { get; set; }
+
 	}
 }

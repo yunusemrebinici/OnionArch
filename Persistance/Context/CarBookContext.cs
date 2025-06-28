@@ -34,5 +34,6 @@ namespace Persistance.Context
 		public DbSet<Author> Authors { get; set; }
 		public DbSet<BlogTags> BlogTags { get; set; }
 		public DbSet<Tag> Tags { get; set; }
+		public DbSet<Comment> Comments { get; set; }
 	}
 }

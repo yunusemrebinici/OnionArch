@@ -27,7 +27,7 @@ namespace Application.Features.Mediator.Handlers.AuthorHandlers
 				CoverImage = request.CoverImage,
 				Name = request.Name,
 				AuthorID = request.AuthorID,
-			};
+			});
 		}
 	}
 }

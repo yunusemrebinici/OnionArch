@@ -1,0 +1,54 @@
+﻿@using DTO.AdminAboutDtos
+@model List<ResultAboutAdminDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UIAdmin/Index.cshtml";
+}
+
+<div>
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Hakkımızda Kısmı,Sayfa düzeni için tek veri önerilir.</h4>
+
+			<div class="table-responsive">
+				<table class="table table-striped mb-0">
+
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Başlık</th>
+							<th>Açıklama</th>
+							<th>Resim Yolu</th>
+							<th>Sil</th>
+							<th>Güncelle</th>
+
+						</tr>
+					</thead>
+					<tbody>
+
+						@foreach (var item in Model)
+						{
+
+							<tr>
+
+								<td>@item.AboutID</td>
+								<td>@item.Title</td>
+								<td>@item.Description.Substring(0,50)</td>
+								<td>@item.ImageUrl</td>
+								<td><a href="/Admin/About/DeleteAbout/@item.AboutID" class="btn btn-danger">Sil</a></td>
+								<td><a href="/Admin/About/UpdateAbout/@item.AboutID" class="btn btn-success">Güncelle</a></td>
+
+							</tr>
+						}
+
+					</tbody>
+				</table>
+				<td>
+					<a href="/Admin/About/CreateAbout/" class="btn btn-primary">Ekle</a>
+				</td>
+			</div>
+		</div>
+	</div>
+
+</div>
+

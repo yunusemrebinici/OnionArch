@@ -44,7 +44,7 @@ namespace CarBook.WebApi.Controllers
 		}
 
 		[HttpDelete("{id}")]
-		public async Task<IActionResult> RemoveFooterAddress(int id)
+		public async Task<IActionResult> DeleteFooterAddress(int id)
 		{
 			await _mediator.Send(new RemoveFooterAdressCommand(id));
 			return Ok("Silme İşlemi Başarılı");

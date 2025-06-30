@@ -1,0 +1,77 @@
+﻿@model List<ResultFooterAddressAdminDto>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/UIAdmin/Index.cshtml";
+}
+
+<style>
+	.table-sm td, .table-sm th {
+		font-size: 0.9rem;
+	}
+	.action-link {
+		display: inline-block;
+		padding: 0.25rem 0.75rem;
+		font-size: 0.9rem;
+		border-radius: 0.2rem;
+		color: #fff !important;
+		text-decoration: none;
+		transition: background 0.2s;
+	}
+	.action-link.delete {
+		background-color: #dc3545;
+	}
+	.action-link.delete:hover {
+		background-color: #b52a37;
+	}
+	.action-link.update {
+		background-color: #28a745;
+	}
+	.action-link.update:hover {
+		background-color: #1e7e34;
+	}
+</style>
+
+<div class="card">
+	<div class="card-body">
+		<h4 class="card-title">FooterAddress</h4>
+		<p class="card-subtitle mb-4">
+			Alt Kısıma Ait Veriler.
+		</p>
+		<div class="table-responsive">
+			<table class="table table-sm mb-0">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Açıklama</th>
+						<th>Adres</th>
+						<th>Mail</th>
+						<th>Numara</th>
+						<th>Sil</th>
+						<th>Güncelle</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var item in Model)
+					{
+						<tr>
+							<th scope="row">@item.FooterAddressID</th>
+							<td>@item.Description</td>
+							<td>@item.Address</td>
+							<td>@item.Email</td>
+							<td>@item.Phone</td>
+							<td>
+								<a href="~/Admin/FooterAddress/DeleteFooterAddress/@item.FooterAddressID" class="action-link delete">Sil</a>
+							</td>
+							<td>
+								<a href="~/Admin/FooterAddress/UpdateFooterAddress/@item.FooterAddressID" class="action-link update">Güncelle</a>
+							</td>
+						</tr>
+					}
+				</tbody>
+				<td>
+					<a href="~/Admin/FooterAddress/CreateFooterAddress" class="action-link update">Yeni Kayıt</a>
+				</td>
+			</table>
+		</div>
+	</div>
+</div>

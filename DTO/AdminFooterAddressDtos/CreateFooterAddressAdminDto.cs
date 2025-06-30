@@ -8,7 +8,7 @@ namespace DTO.AdminFooterAddressDtos
 {
 	public class CreateFooterAddressAdminDto
 	{
-		
+		public string Description { get; set; }
 
 		public string Address { get; set; }
 

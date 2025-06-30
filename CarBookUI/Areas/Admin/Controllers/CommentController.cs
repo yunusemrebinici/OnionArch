@@ -1,4 +1,5 @@
 ﻿using DTO.AdminBlogDtos;
+using DTO.AdminCommentDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Net.Http;
@@ -22,14 +23,14 @@ namespace CarBookUI.Areas.Admin.Controllers
 		}
 
 		[HttpGet("{id}")]
-		public async Task<IActionResult> GetBlogComment(int id)
+		public async Task<IActionResult> GetBlogComments(int id)
 		{
 			var client = _httpClientFactory.CreateClient();
-			var responseMessage = await client.GetAsync("https://localhost:7217/api/Blogs/" + id);
+			var responseMessage = await client.GetAsync("https://localhost:7217/api/Comments/GetCommentsByBlogId/" + id);
 			if (responseMessage.IsSuccessStatusCode)
 			{
 				var json = await responseMessage.Content.ReadAsStringAsync();
-				var values = JsonConvert.DeserializeObject<GetBlogDetailByIdAdminDto>(json);
+				var values = JsonConvert.DeserializeObject<List<GetCommentByBlogIdAdminDto>>(json);
 				return View(values);
 			}
 			return View();

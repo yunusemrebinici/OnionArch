@@ -1,0 +1,47 @@
+﻿@model List<ResultContactAdminDto>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/UIAdmin/Index.cshtml";
+	int count = 0;
+}
+
+<div class="card">
+	<div class="card-body">
+		<h4 class="card-title">Mesajlar</h4>
+		<p class="card-subtitle mb-4">
+			Mesajlar Kısmına Ait Veriler.
+		</p>
+		<div class="table-responsive">
+			<table class="table table-dark mb-0">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>İsim</th>
+						<th>Mail</th>
+						<th>Konu</th>
+						<th>Mesaj</th>
+						<th>Tarih</th>
+						<th>Sil</th>
+					</tr>
+				</thead>
+				<tbody >
+					@foreach (var item in Model)
+					{
+						count++;
+						<tr>
+							<th scope="row">@count</th>
+							<td>@item.Name</td>
+							<td>@item.Email</td>
+							<td>@item.Subject</td>
+							<td>@item.Message</td>
+							<td>@item.SendDate.ToString("dd-MMM-yyyy")</td>
+							<td><a href="~/Admin/Contact/DeleteContact/@item.ContactID" style="btn btn-danger">Sil</a></td>
+						</tr>
+					}
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+

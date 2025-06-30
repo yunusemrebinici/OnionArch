@@ -1,0 +1,23 @@
+﻿@model UpdatePricingAdminDto
+@{
+    ViewData["Title"] = "UpdatePricing";
+    Layout = "~/Views/UIAdmin/Index.cshtml";
+}
+
+<div class="card">
+	<div class="card-body">
+		<p class="card-subtitle mb-4">Fiyat Ekleme Sayfası</p>
+		<form method="post">
+			<input type="hidden" asp-for="pricingID" />
+			<div class="form-group">
+				<label for="exampleInputEmail1">Başlık</label>
+				<input type="text" class="form-control" asp-for="name">
+			</div>
+			<br />
+			<button class="btn btn-primary">Güncelle</button>
+
+		</form>
+
+	</div>
+</div>
+

@@ -1,0 +1,48 @@
+﻿@model List<ResultLocationAdminDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UIAdmin/Index.cshtml";
+}
+
+<div>
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Lokasyon Kısmına Ait Veriler Bulunmaktadır</h4>
+
+			<div class="table-responsive">
+				<table class="table table-striped mb-0">
+
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Lokasyon</th>
+							<th>Sil</th>
+							<th>Güncelle</th>
+						</tr>
+					</thead>
+					<tbody>
+
+						@foreach (var item in Model)
+						{
+
+							<tr>
+
+								<td>@item.LocationID</td>
+								<td>@item.Name</td>
+								<td><a href="/Admin/Location/DeleteLocation/@item.LocationID" class="btn btn-danger">Sil</a></td>
+								<td><a href="/Admin/Location/UpdateLocation/@item.LocationID" class="btn btn-success">Güncelle</a></td>
+
+							</tr>
+						}
+
+					</tbody>
+				</table>
+				<td>
+					<a href="/Admin/Location/CreateLocation/" class="btn btn-primary">Ekle</a>
+				</td>
+			</div>
+		</div>
+	</div>
+
+</div>
+

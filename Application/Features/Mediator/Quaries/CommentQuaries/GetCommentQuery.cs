@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Application.Features.Mediator.Results.CommentResult;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Mediator.Quaries.CommentQuaries
 {
-	public class GetCommentQuery:IRequest<List<GetCommentQuery>>
+	public class GetCommentQuery:IRequest<List<GetCommentQueryResult>>
 	{
 	}
 }

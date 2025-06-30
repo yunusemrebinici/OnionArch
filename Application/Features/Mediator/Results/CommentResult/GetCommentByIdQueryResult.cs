@@ -7,13 +7,11 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Mediator.Results.CommentResult
 {
-	public class GetCommentByIdCommentResult
+	public class GetCommentByIdQueryResult
 	{
 		public int CommentID { get; set; }
 
 		public int BlogID { get; set; }
-
-		public Blog Blog { get; set; }
 
 		public string Email { get; set; }
 

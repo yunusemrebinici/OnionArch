@@ -13,8 +13,6 @@ namespace Application.Features.Mediator.Results.CommentResult
 
 		public int BlogID { get; set; }
 
-		public Blog Blog { get; set; }
-
 		public string Email { get; set; }
 
 		public string Title { get; set; }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Mediator.Quaries.CommentQuaries
 {
-	public class GetCommentByIdQuery:IRequest<GetCommentQueryResult>
+	public class GetCommentByIdQuery:IRequest<GetCommentByIdQueryResult>
 	{
 		public int Id { get; set; }
 

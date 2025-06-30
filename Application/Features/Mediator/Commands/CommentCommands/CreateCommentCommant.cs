@@ -14,8 +14,6 @@ namespace Application.Features.Mediator.Commands.CommentCommands
 
 		public int BlogID { get; set; }
 
-		public Blog Blog { get; set; }
-
 		public string Email { get; set; }
 
 		public string Title { get; set; }

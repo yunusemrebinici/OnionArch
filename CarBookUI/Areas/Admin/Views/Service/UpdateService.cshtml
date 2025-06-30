@@ -1,0 +1,36 @@
+﻿@model UpdateServiceAdminDto
+@{
+    ViewData["Title"] = "UpdateService";
+    Layout = "~/Views/UIAdmin/Index.cshtml";
+}
+
+<div class="card">
+	<div class="card-body">
+		<p class="card-subtitle mb-4">Servis Güncelleme Sayfası</p>
+		<form method="post">
+
+			<input type="hidden" asp-for="ServicesID" />
+			<div class="form-group">
+				<label for="exampleInputEmail1">Başlık</label>
+				<input type="text" class="form-control" asp-for="Title">
+			</div>
+			<br />
+
+			<div class="form-group">
+				<label for="exampleInputEmail1">Açıklama</label>
+				<input type="text" class="form-control" asp-for="Description">
+			</div>
+			<br />
+
+			<div class="form-group">
+				<label for="exampleInputEmail1">IconUrl</label>
+				<input type="text" class="form-control" asp-for="IconUrl">
+			</div>
+			<br />
+			<button class="btn btn-primary">Güncelle</button>
+
+		</form>
+
+	</div>
+</div>
+

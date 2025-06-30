@@ -1,0 +1,35 @@
+﻿@model CreateSocialMediaAdminDto
+@{
+    ViewData["Title"] = "CreateSocialMedia";
+    Layout = "~/Views/UIAdmin/Index.cshtml";
+}
+
+<div class="card">
+	<div class="card-body">
+		<p class="card-subtitle mb-4">Sosyal Medya Ekleme Sayfası</p>
+		<form method="post">
+
+			<div class="form-group">
+				<label for="exampleInputEmail1">Başlık</label>
+				<input type="text" class="form-control" asp-for="Name">
+			</div>
+			<br />
+
+			<div class="form-group">
+				<label for="exampleInputEmail1">İcon</label>
+				<input type="text" class="form-control" asp-for="Icon">
+			</div>
+			<br />
+
+			<div class="form-group">
+				<label for="exampleInputEmail1">İcon Yolu</label>
+				<input type="text" class="form-control" asp-for="Url">
+			</div>
+			<br />
+			<button class="btn btn-primary">Kaydet</button>
+
+		</form>
+
+	</div>
+</div>
+

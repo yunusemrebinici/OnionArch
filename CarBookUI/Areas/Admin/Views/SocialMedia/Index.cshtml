@@ -1,0 +1,52 @@
+﻿@model List<ResultSocialMediaAdminDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UIAdmin/Index.cshtml";
+}
+
+<div>
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">SocialMedia Kısmına Ait Veriler Bulunmaktadır</h4>
+
+			<div class="table-responsive">
+				<table class="table table-striped mb-0">
+
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>İsim</th>
+							<th>Açıklama</th>
+							<th>İcon Yolu</th>
+							<th>Sil</th>
+							<th>Güncelle</th>
+						</tr>
+					</thead>
+					<tbody>
+
+						@foreach (var item in Model)
+						{
+
+							<tr>
+
+								<td>@item.SocialMediaID</td>
+								<td>@item.Name</td>
+								<td>@item.Url</td>
+								<td>@item.Icon</td>
+								<td><a href="/Admin/SocialMedia/DeleteSocialMedia/@item.SocialMediaID" class="btn btn-danger">Sil</a></td>
+								<td><a href="/Admin/SocialMedia/UpdateSocialMedia/@item.SocialMediaID" class="btn btn-success">Güncelle</a></td>
+
+							</tr>
+						}
+
+					</tbody>
+				</table>
+				<td>
+					<a href="/Admin/SocialMedia/CreateSocialMedia/" class="btn btn-primary">Ekle</a>
+				</td>
+			</div>
+		</div>
+	</div>
+
+</div>
+

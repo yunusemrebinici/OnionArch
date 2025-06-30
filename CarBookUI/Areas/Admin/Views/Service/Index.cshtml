@@ -1,0 +1,52 @@
+﻿@model List<ResultServiceAdminDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UIAdmin/Index.cshtml";
+}
+
+<div>
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Service Kısmına Ait Veriler Bulunmaktadır</h4>
+
+			<div class="table-responsive">
+				<table class="table table-striped mb-0">
+
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Başlık</th>
+							<th>Açıklama</th>
+							<th>İcon Yolu</th>
+							<th>Sil</th>
+							<th>Güncelle</th>
+						</tr>
+					</thead>
+					<tbody>
+
+						@foreach (var item in Model)
+						{
+
+							<tr>
+
+								<td>@item.ServicesID</td>
+								<td>@item.Title</td>
+								<td>@item.Description</td>
+								<td>@item.IconUrl</td>
+								<td><a href="/Admin/Service/DeleteService/@item.ServicesID" class="btn btn-danger">Sil</a></td>
+								<td><a href="/Admin/Service/UpdateService/@item.ServicesID" class="btn btn-success">Güncelle</a></td>
+
+							</tr>
+						}
+
+					</tbody>
+				</table>
+				<td>
+					<a href="/Admin/Service/CreateService/" class="btn btn-primary">Ekle</a>
+				</td>
+			</div>
+		</div>
+	</div>
+
+</div>
+

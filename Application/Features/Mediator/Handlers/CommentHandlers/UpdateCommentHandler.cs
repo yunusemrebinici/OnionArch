@@ -25,6 +25,7 @@ namespace Application.Features.Mediator.Handlers.CommentHandlers
 			{
 				BlogComment = request.BlogComment,
 				CoverImage = request.CoverImage,
+				Name = request.Name,
 				Email = request.Email,
 				Title = request.Title,
 				BlogID = request.BlogID,

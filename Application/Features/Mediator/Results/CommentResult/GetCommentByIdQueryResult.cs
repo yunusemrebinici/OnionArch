@@ -15,6 +15,8 @@ namespace Application.Features.Mediator.Results.CommentResult
 
 		public string Email { get; set; }
 
+		public string Name { get; set; }
+
 		public string Title { get; set; }
 
 		public string BlogComment { get; set; }

@@ -43,8 +43,8 @@ namespace CarBook.WebApi.Controllers
 			return Ok("Güncelleme Başarılı");
 		}
 
-		[HttpDelete]
-		public async Task<IActionResult> RemoveTestimonial(int id)
+		[HttpDelete("{id}")]
+		public async Task<IActionResult> DeleteTestimonial(int id)
 		{
 			await _mediator.Send(new RemoveTestimonialCommand(id));
 			return Ok("Silme İşlemi Başarılı");

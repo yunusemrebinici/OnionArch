@@ -1,0 +1,38 @@
+﻿@model CreateTestimonialAdminDto
+@{
+	ViewData["Title"] = "CreateTestimonial";
+	Layout = "~/Views/UIAdmin/Index.cshtml";
+}
+
+<div class="card">
+	<div class="card-body">
+		<p class="card-subtitle mb-4">Referans Ekleme Sayfası</p>
+		<form method="post">
+
+			<div class="form-group">
+				<label for="exampleInputEmail1">İsim</label>
+				<input type="text" class="form-control" asp-for="Name">
+			</div>
+			<br />
+			<div class="form-group">
+				<label for="exampleInputEmail1">Başlık</label>
+				<input type="text" class="form-control" asp-for="Title">
+			</div>
+			<br /
+			><div class="form-group">
+				<label for="exampleInputEmail1">Yorum</label>
+				<input type="text" class="form-control" asp-for="Comment">
+			</div>
+			<br />
+			<div class="form-group">
+				<label for="exampleInputEmail1">Resim</label>
+				<input type="text" class="form-control" asp-for="ImageUrl">
+			</div>
+			<br />
+
+			<button class="btn btn-primary">Kaydet</button>
+		</form>
+
+	</div>
+</div>
+

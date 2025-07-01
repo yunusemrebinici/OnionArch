@@ -8,12 +8,14 @@ using Application.Interfaces;
 using Application.Interfaces.IBlogRepositories;
 using Application.Interfaces.ICarRepositories;
 using Application.Interfaces.ICommentRepositories;
+using Application.Interfaces.IStatisticRepositories;
 using Application.Services;
 using Persistance.Context;
 using Persistance.Repositories;
 using Persistance.Repositories.BlogRepositories;
 using Persistance.Repositories.CarRepositories;
 using Persistance.Repositories.CommentRepositories;
+using Persistance.Repositories.StatisticRepositories;
 using Persistance.Repositories.TagRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,6 +27,7 @@ builder.Services.AddScoped(typeof(ICarRepository), typeof(CarRepository));
 builder.Services.AddScoped<IBlogRepository,BlogRepository>();
 builder.Services.AddScoped<ITagRepository,TagRepository>();
 builder.Services.AddScoped<ICommentRepository,CommentRepository>();
+builder.Services.AddScoped<IStatisticRepository,StatistsicRepository>();
 
 
 builder.Services.AddScoped<CreateAboutCommandHandler>();

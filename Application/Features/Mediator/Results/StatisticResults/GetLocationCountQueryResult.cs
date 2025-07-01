@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Mediator.Results.StatisticResults
 {
-	public class GetAutomaticTransMissionCarCount
+	public class GetLocationCountQueryResult
 	{
-		public int AutoTransCarCount { get; set; }
+		public int LocationCount { get; set; }
 	}
 }

@@ -22,6 +22,16 @@ namespace CarBook.WebApi.Controllers
 			return Ok(values);
 		}
 
+		[HttpGet("GetMinTodayPriceCarBrandModel")]
+		public async Task<IActionResult> GetMinTodayPriceCarBrandModel()
+		{
+			var values = await _mediator.Send(new GetMinTodayPriceCarBrandModelQuery());
+			return Ok(values);
+		}
+
+		
+
+
 		[HttpGet("GetMaxTodayPriceCarBrandModel")]
 		public async Task<IActionResult> GetMaxTodayPriceCarBrandModel()
 		{

@@ -79,9 +79,10 @@ namespace Persistance.Repositories.StatisticRepositories
 		}
 
 
-		public Task<string> GetMinTodayPriceCarBrandModel()
+		public async Task<string> GetMinTodayPriceCarBrandModel()
 		{
-			throw new NotImplementedException();
+			var value = await _context.CarPricings.Include(x => x.Car).Where(x => x.PricingID == 2).OrderByDescending(x => x.Amount).Select(c => c.Car.Model).LastOrDefaultAsync();
+			return value;
 		}
 
 		public async Task<decimal> GetMonthCarPricingAvg()

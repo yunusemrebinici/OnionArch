@@ -22,6 +22,21 @@ namespace CarBook.WebApi.Controllers
 			return Ok(values);
 		}
 
+		[HttpGet("GetCarUnder1000kmCount")]
+		public async Task<IActionResult> GetCarUnder1000kmCount()
+		{
+			var values = await _mediator.Send(new GetCarUnder1000kmCountQuery());
+			return Ok(values);
+		}
+
+		[HttpGet("GetElectricCarCount")]
+		public async Task<IActionResult> GetElectricCarCount()
+		{
+			var values = await _mediator.Send(new GetElectricCarCountQuery());
+			return Ok(values);
+		}
+
+
 		[HttpGet("GetMinTodayPriceCarBrandModel")]
 		public async Task<IActionResult> GetMinTodayPriceCarBrandModel()
 		{

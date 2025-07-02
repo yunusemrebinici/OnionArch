@@ -20,7 +20,7 @@ namespace Persistance.Repositories.StatisticRepositories
 
 		public async Task<int> GetAuthorCount()
 		{
-		    int value= await _context.Cars.Select(x=>x.CarID).CountAsync();
+		    int value= await _context.Authors.Select(x=>x.AuthorID).CountAsync();
 			return value;
 		}
 

@@ -15,7 +15,7 @@ namespace Application.Features.Mediator.Handlers.StatisticHandlers
 		private readonly IStatisticRepository _statistic;
 		public GethMonthCarQueryHandler(IStatisticRepository statistic)
 		{
-			
+			_statistic = statistic;
 		}
 
 		public async Task<GetMonthCarPricingQueryResult> Handle(GethMonthCarQuery request, CancellationToken cancellationToken)

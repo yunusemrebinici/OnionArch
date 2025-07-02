@@ -16,27 +16,27 @@ namespace CarBook.WebApi.Controllers
 			_mediator = mediator;
 		}
 		[HttpGet(" GetCarCount")]
-		public  async Task<IActionResult> GetCarCount()
+		public async Task<IActionResult> GetCarCount()
 		{
 			var values = await _mediator.Send(new GetCarCountQuery());
 			return Ok(values);
 		}
 
 		[HttpGet("GetLocationCount")]
-		public  async Task<IActionResult> GetLocationCount()
+		public async Task<IActionResult> GetLocationCount()
 		{
 			var values = await _mediator.Send(new GetLocationCountQuery());
 			return Ok(values);
 		}
 
 		[HttpGet(" GetAuthorCount")]
-		public  async Task<IActionResult> GetAuthorCount()
+		public async Task<IActionResult> GetAuthorCount()
 		{
 			var values = await _mediator.Send(new GetOuthorCountQuery());
 			return Ok(values);
 		}
 		[HttpGet("GetBrandCount")]
-		public  async Task<IActionResult> GetBrandCount()
+		public async Task<IActionResult> GetBrandCount()
 		{
 			var values = await _mediator.Send(new GetBrandCountQuery());
 			return Ok(values);
@@ -48,7 +48,7 @@ namespace CarBook.WebApi.Controllers
 			return Ok(values);
 		}
 		[HttpGet("GetTodayCarPricingAvg")]
-		public	async Task<IActionResult> GetTodayCarPricingAvg()
+		public async Task<IActionResult> GetTodayCarPricingAvg()
 		{
 			var values = await _mediator.Send(new GetTodayCarPricingAvgQuery());
 			return Ok(values);
@@ -62,26 +62,26 @@ namespace CarBook.WebApi.Controllers
 
 
 		[HttpGet("GetMonthCarPricingAvg")]
-		public	async	 Task<IActionResult> GetMonthCarPricingAvg()
+		public async Task<IActionResult> GetMonthCarPricingAvg()
 		{
 			var values = await _mediator.Send(new GethMonthCarQuery());
 			return Ok(values);
 		}
 
 		[HttpGet(" GetAutomaticTransMissionCarCount")]
-		public  async Task<IActionResult> GetAutomaticTransMissionCarCount()
+		public async Task<IActionResult> GetAutomaticTransMissionCarCount()
 		{
 			var values = await _mediator.Send(new GetAutomaticTransMisCarQuery());
 			return Ok(values);
 		}
 		[HttpGet("GetMostBrandedCarsBrand")]
-		public	async	 Task<IActionResult> GetMostBrandedCarsBrand()
+		public async Task<IActionResult> GetMostBrandedCarsBrand()
 		{
 			var values = await _mediator.Send(new GetMostBrandedCarsBrandQuery());
 			return Ok(values);
 		}
 		[HttpGet("GetMostBlogCommentCount")]
-		public  async Task<IActionResult> GetMostBlogCommentCount()
+		public async Task<IActionResult> GetMostBlogCommentCount()
 		{
 			var values = await _mediator.Send(new GetMostBlogCommentQuery());
 			return Ok(values);

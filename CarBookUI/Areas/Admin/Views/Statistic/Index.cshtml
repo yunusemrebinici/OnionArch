@@ -263,13 +263,105 @@
 		<div class="card bg-info border-info">
 			<div class="card-body">
 				<div class="mb-4">
-					<span class="badge badge-soft-light float-right">Aylık</span>
-					<h5 class="card-title mb-0 text-white">Popüler Marka</h5>
+					<span class="badge badge-soft-light float-right">Günlük</span>
+					<h5 class="card-title mb-0 text-white">En Uygun Model</h5>
 				</div>
 				<div class="row d-flex align-items-center mb-4">
 					<div class="col-8">
 						<h2 class="d-flex align-items-center text-white mb-0">
-							@ViewBag.mostBrandedCarBrand
+							@ViewBag.MinTodayPriceCarBrandModel
+						</h2>
+					</div>
+				</div>
+
+				<div class="progress badge-soft-light shadow-sm" style="height: 7px;">
+					<div class="progress-bar bg-light" role="progressbar" style="width: 57%;"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-md-6 col-xl-3">
+		<div class="card bg-primary border-primary">
+			<div class="card-body">
+				<div class="mb-4">
+					<span class="badge badge-soft-light float-right">Günlük</span>
+					<h5 class="card-title mb-0 text-white">En Pahalı Modeli</h5>
+				</div>
+				<div class="row d-flex align-items-center mb-4">
+					<div class="col-8">
+						<h2 class="d-flex align-items-center mb-0 text-white">
+							@ViewBag.MaxTodayPriceCarBrandModel
+						</h2>
+					</div>
+				</div>
+
+				<div class="progress badge-soft-light shadow-sm" style="height: 5px;">
+					<div class="progress-bar bg-light" role="progressbar" style="width: 45%;"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-6 col-xl-3">
+		<div class="card bg-success border-success">
+			<div class="card-body">
+				<div class="mb-4">
+					<span class="badge badge-soft-light float-right">Toplam</span>
+					<h5 class="card-title mb-0 text-white">Elektirikli Araç</h5>
+				</div>
+				<div class="row d-flex align-items-center mb-4">
+					<div class="col-8">
+						<h2 class="d-flex align-items-center text-white mb-0">
+							@ViewBag.getElectricCarCount
+						</h2>
+					</div>
+				</div>
+
+				<div class="progress badge-soft-light shadow-sm" style="height: 7px;">
+					<div class="progress-bar bg-light" role="progressbar" style="width: 38%;"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-6 col-xl-3">
+		<div class="card bg-warning border-warning">
+			<div class="card-body">
+				<div class="mb-4">
+					<span class="badge badge-soft-light float-right">Toplam</span>
+					<h5 class="card-title mb-0 text-white">1000 KM Altı Araç</h5>
+				</div>
+				<div class="row d-flex align-items-center mb-4">
+					<div class="col-8">
+						<h2 class="d-flex align-items-center text-white mb-0">
+							@ViewBag.getCarUnder1000kmCount
+						</h2>
+					</div>
+
+				</div>
+
+				<div class="progress badge-soft-light shadow-sm" style="height: 7px;">
+					<div class="progress-bar bg-light" role="progressbar" style="width: 68%;"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-6 col-xl-3">
+		<div class="card bg-info border-info">
+			<div class="card-body">
+				<div class="mb-4">
+					<span class="badge badge-soft-light float-right">Toplam</span>
+					<h5 class="card-title mb-0 text-white">Personel Sayısı</h5>
+				</div>
+				<div class="row d-flex align-items-center mb-4">
+					<div class="col-8">
+						<h2 class="d-flex align-items-center text-white mb-0">
+							@ViewBag.getTestimonailCount
 						</h2>
 					</div>
 				</div>

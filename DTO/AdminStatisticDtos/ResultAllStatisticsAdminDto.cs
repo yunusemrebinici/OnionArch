@@ -19,5 +19,11 @@ namespace DTO.AdminStatisticDtos
 		public int Authorcount { get; set; }
 		public decimal TodayCarPricing { get; set; }
 		public decimal WeekCarPricing { get; set; }
+
+		public string GetMinTodayPriceCarBrandModel { get; set; }
+		public string MaxTodayPriceCarBrandModel { get; set; }
+		public int GetElectricCarCount { get; set; }
+		public int GetCarUnder1000kmCount { get; set; }
+		public int GetTestimonailCount { get; set; }
 	}
 }

@@ -169,6 +169,70 @@ namespace CarBookUI.Areas.Admin.Controllers
 
 			#endregion
 
+			#region GetMinTodayPriceCarBrandModel
+			var responseMessage11 = await client.GetAsync("https://localhost:7217/api/Statistics/GetMinTodayPriceCarBrandModel");
+			if (responseMessage11.IsSuccessStatusCode)
+			{
+				var json11 = await responseMessage11.Content.ReadAsStringAsync();
+				var values11 = JsonConvert.DeserializeObject<ResultAllStatisticsAdminDto>(json11);
+
+				ViewBag.MinTodayPriceCarBrandModel = values11.GetMinTodayPriceCarBrandModel;
+
+			}
+
+			#endregion
+
+			#region MaxTodayPriceCarBrandModel
+			var responseMessage12 = await client.GetAsync("https://localhost:7217/api/Statistics/GetMaxTodayPriceCarBrandModel");
+			if (responseMessage12.IsSuccessStatusCode)
+			{
+				var json12 = await responseMessage12.Content.ReadAsStringAsync();
+				var values12 = JsonConvert.DeserializeObject<ResultAllStatisticsAdminDto>(json12);
+
+				ViewBag.MaxTodayPriceCarBrandModel = values12.MaxTodayPriceCarBrandModel;
+
+			}
+
+			#endregion
+
+			#region GetElectricCarCount
+			var responseMessage13 = await client.GetAsync("https://localhost:7217/api/Statistics/GetElectricCarCount");
+			if (responseMessage13.IsSuccessStatusCode)
+			{
+				var json13 = await responseMessage13.Content.ReadAsStringAsync();
+				var values13 = JsonConvert.DeserializeObject<ResultAllStatisticsAdminDto>(json13);
+
+				ViewBag.getElectricCarCount = values13.GetElectricCarCount;
+
+			}
+
+			#endregion
+
+			#region GetCarUnder1000kmCount
+			var responseMessage14 = await client.GetAsync("https://localhost:7217/api/Statistics/GetCarUnder1000kmCount");
+			if (responseMessage14.IsSuccessStatusCode)
+			{
+				var json14 = await responseMessage14.Content.ReadAsStringAsync();
+				var values14 = JsonConvert.DeserializeObject<ResultAllStatisticsAdminDto>(json14);
+
+				ViewBag.getCarUnder1000kmCount = values14.GetCarUnder1000kmCount;
+
+			}
+
+			#endregion
+
+			#region GetTestimonailCount
+			var responseMessage15 = await client.GetAsync("https://localhost:7217/api/Statistics/GetTestimonailCount");
+			if (responseMessage15.IsSuccessStatusCode)
+			{
+				var json15 = await responseMessage15.Content.ReadAsStringAsync();
+				var values15 = JsonConvert.DeserializeObject<ResultAllStatisticsAdminDto>(json15);
+
+				ViewBag.getTestimonailCount = values15.GetTestimonailCount;
+
+			}
+
+			#endregion
 
 			return View();
 		}

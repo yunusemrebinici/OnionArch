@@ -29,7 +29,12 @@ namespace CarBook.WebApi.Controllers
 			return Ok(values);
 		}
 
-		
+		[HttpGet("GetTestimonailCount")]
+		public async Task<IActionResult> GetTestimonailCount()
+		{
+			var values = await _mediator.Send(new GetTestimonailCountQuery());
+			return Ok(values);
+		}
 
 
 		[HttpGet("GetMaxTodayPriceCarBrandModel")]

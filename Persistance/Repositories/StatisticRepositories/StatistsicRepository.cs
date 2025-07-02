@@ -78,7 +78,6 @@ namespace Persistance.Repositories.StatisticRepositories
 			return value;
 		}
 
-
 		public async Task<string> GetMinTodayPriceCarBrandModel()
 		{
 			var value = await _context.CarPricings.Include(x => x.Car).Where(x => x.PricingID == 2).OrderByDescending(x => x.Amount).Select(c => c.Car.Model).LastOrDefaultAsync();
@@ -111,9 +110,10 @@ namespace Persistance.Repositories.StatisticRepositories
 			return brand;
 		}
 
-		public Task<int> GetTestimonailCount()
+		public async Task<int> GetTestimonailCount()
 		{
-			throw new NotImplementedException();
+			int value = await _context.Testimonials.CountAsync();
+			return value;
 		}
 
 		public async Task<decimal> GetTodayCarPricingAvg()

@@ -22,6 +22,13 @@ namespace CarBook.WebApi.Controllers
 			return Ok(values);
 		}
 
+		[HttpGet("GetMaxTodayPriceCarBrandModel")]
+		public async Task<IActionResult> GetMaxTodayPriceCarBrandModel()
+		{
+			var values = await _mediator.Send(new GetMaxTodayPriceCarBrandModelQuery());
+			return Ok(values);
+		}
+
 		[HttpGet("GetLocationCount")]
 		public async Task<IActionResult> GetLocationCount()
 		{

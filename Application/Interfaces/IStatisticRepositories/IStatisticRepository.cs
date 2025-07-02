@@ -21,10 +21,10 @@ namespace Application.Interfaces.IStatisticRepositories
 		Task<int> GetMostBlogCommentCount();
 
 		Task<int>GetTestimonailCount();
-		Task<string> GetCarUnder1000kmCount();
+		Task<int> GetCarUnder1000kmCount();
 		Task<int> GetElectricCarCount();
-		Task<string> GetMaxPriceCarBrandModel();
-		Task<string> GetMinPriceCarBrandModel();
+		Task<string> GetMaxTodayPriceCarBrandModel();
+		Task<string> GetMinTodayPriceCarBrandModel();
 
 	}
 }

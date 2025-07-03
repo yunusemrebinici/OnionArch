@@ -1,9 +1,30 @@
-﻿@{
+﻿@model ResultLocationDto
+@{
 	Layout = null;
 }
 
 <!DOCTYPE html>
 <html lang="en">
+<style>
+
+	/* Sadece dropdown elementinin basic stilleri */
+	.form-control {
+		width: 100%; /* Kapsayıcısının genişliğini alsın */
+		padding: 8px 12px; /* İç boşluk */
+		border: 1px solid #ccc; /* Basit gri kenarlık */
+		border-radius: 4px; /* Hafif yuvarlak köşeler */
+		background-color: #fff; /* Beyaz arka plan */
+		color: #333; /* Koyu gri yazı rengi */
+		font-size: 16px; /* Okunur bir yazı boyutu */
+		line-height: 1.5; /* Satır yüksekliği */
+	}
+
+		/* Seçeneklerin temel stili */
+		.form-control option {
+			color: #333;
+			background-color: #fff;
+		}
+</style>
 @await Component.InvokeAsync("_HeadUILayoutComponentPartial")
 <body>
 
@@ -19,32 +40,29 @@
 				<div class="col-md-12	featured-top">
 					<div class="row no-gutters">
 						<div class="col-md-4 d-flex align-items-center">
-							<form action="#" class="request-form ftco-animate bg-primary">
+							<form method="post" class="request-form ftco-animate bg-primary">
 								<h2>Make your trip</h2>
 								<div class="form-group">
-									<label for="" class="label">Pick-up location</label>
-									<input type="text" class="form-control" placeholder="City, Airport, Station, etc">
+									<label for="" class="label">Başlangıç Lokasyonu</label>
+									@Html.DropDownListFor(x => x.locationID, (List<SelectListItem>)@ViewBag.SelectListItems, new { @class = "form-control"})
 								</div>
 								<div class="form-group">
-									<label for="" class="label">Drop-off location</label>
-									<input type="text" class="form-control" placeholder="City, Airport, Station, etc">
+									<label for="" class="label">Bitiş Lokasyonu</label>
+									@Html.DropDownListFor(x => x.endlocationID, (List<SelectListItem>)@ViewBag.SelectListItems, new { @class = "form-control" })
 								</div>
 								<div class="d-flex">
 									<div class="form-group mr-2">
-										<label for="" class="label">Pick-up date</label>
-										<input type="text" class="form-control" id="book_pick_date" placeholder="Date">
+										<label for="" class="label">Başlangıç Günü</label>
+										<input type="text" class="form-control" id="book_pick_date" placeholder="Tarih">
 									</div>
 									<div class="form-group ml-2">
-										<label for="" class="label">Drop-off date</label>
-										<input type="text" class="form-control" id="book_off_date" placeholder="Date">
+										<label for="" class="label">Bitiş Günü</label>
+										<input type="text" class="form-control" id="book_off_date" placeholder="Tarih">
 									</div>
 								</div>
+
 								<div class="form-group">
-									<label for="" class="label">Pick-up time</label>
-									<input type="text" class="form-control" id="time_pick" placeholder="Time">
-								</div>
-								<div class="form-group">
-									<input type="submit" value="Rent A Car Now" class="btn btn-secondary py-3 px-4">
+									<input type="submit" value="Araçları Görüntüle" class="btn btn-secondary py-3 px-4">
 								</div>
 							</form>
 						</div>

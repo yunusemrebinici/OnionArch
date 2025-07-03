@@ -16,6 +16,7 @@ using Persistance.Repositories;
 using Persistance.Repositories.BlogRepositories;
 using Persistance.Repositories.CarRepositories;
 using Persistance.Repositories.CommentRepositories;
+using Persistance.Repositories.RentAcarRepositories;
 using Persistance.Repositories.StatisticRepositories;
 using Persistance.Repositories.TagRepositories;
 
@@ -29,7 +30,7 @@ builder.Services.AddScoped<IBlogRepository,BlogRepository>();
 builder.Services.AddScoped<ITagRepository,TagRepository>();
 builder.Services.AddScoped<ICommentRepository,CommentRepository>();
 builder.Services.AddScoped<IStatisticRepository,StatistsicRepository>();
-builder.Services.AddScoped<IRentAcarRepository,IRentAcarRepository>();
+builder.Services.AddScoped<IRentAcarRepository,RentAcarRepository>();
 
 
 builder.Services.AddScoped<CreateAboutCommandHandler>();

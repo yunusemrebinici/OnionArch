@@ -8,6 +8,7 @@ using Application.Interfaces;
 using Application.Interfaces.IBlogRepositories;
 using Application.Interfaces.ICarRepositories;
 using Application.Interfaces.ICommentRepositories;
+using Application.Interfaces.IRentAcarRepositories;
 using Application.Interfaces.IStatisticRepositories;
 using Application.Services;
 using Persistance.Context;
@@ -28,6 +29,7 @@ builder.Services.AddScoped<IBlogRepository,BlogRepository>();
 builder.Services.AddScoped<ITagRepository,TagRepository>();
 builder.Services.AddScoped<ICommentRepository,CommentRepository>();
 builder.Services.AddScoped<IStatisticRepository,StatistsicRepository>();
+builder.Services.AddScoped<IRentAcarRepository,IRentAcarRepository>();
 
 
 builder.Services.AddScoped<CreateAboutCommandHandler>();

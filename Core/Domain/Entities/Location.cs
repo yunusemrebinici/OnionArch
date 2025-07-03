@@ -11,5 +11,8 @@ namespace Domain.Entities
 		public int LocationID { get; set; }
 
 		public string Name { get; set; }
+
+		public List<RentAcar> RentAcars { get; set; }
+
 	}
 }

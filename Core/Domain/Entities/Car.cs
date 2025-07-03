@@ -35,5 +35,9 @@ namespace Domain.Entities
 		public List<CarDescription> CarDescriptions { get; set; }
 
 		public List<CarPricing> CarPricing { get; set; }
+
+		public List<RentAcar> RentAcars { get; set; }
+
+		public List<RentAcarProcess> RentAcarProcesses { get; set; }
 	}
 }

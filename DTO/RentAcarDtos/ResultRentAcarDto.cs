@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Mediator.Results.GetRentAcarQueryResult
+namespace DTO.RentAcarDtos
 {
-	public class GetRentAcarQueryResult
+	public class ResultRentAcarDto
 	{
 		public int CarID { get; set; }
 

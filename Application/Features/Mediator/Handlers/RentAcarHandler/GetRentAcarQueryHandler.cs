@@ -24,8 +24,14 @@ namespace Application.Features.Mediator.Handlers.RentAcarHandler
 			var value = await _repository.GetByFilterAsync(x=>x.LocationID==request.LocationId && x.Available==request.Available);
 
 			return value.Select(x=>new GetRentAcarQueryResult
-			{
+			{	
+				LocationId=x.LocationID,
 				CarID=x.CarID,
+				CoverImageUrl=x.Car.CoverImageUrl,
+				Model=x.Car.Model,
+				Name=x.Car.Brand.Name,
+				Amount = x.Car.CarPricing.Select(x=>x.Amount).FirstOrDefault(),
+				
 			}).ToList();
 		}
 	}

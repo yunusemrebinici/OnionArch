@@ -1,4 +1,5 @@
 ﻿using DTO.CarDtos;
+using DTO.RentAcarDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Security.Cryptography.X509Certificates;
@@ -15,17 +16,18 @@ namespace CarBookUI.Controllers
 			_httpClientFactory = httpClientFactory;
 		}
 
+
 		public async Task<IActionResult> Index()
 		{
 			ViewBag.v1 = "Araç Listesi";
-			ViewBag.startLocation = TempData["startlocation"];
+			var locationId = TempData["startlocation"];
 
 			var client = _httpClientFactory.CreateClient();
-			var reponseMessage = await client.GetAsync("https://localhost:7217/api/Cars/GetCarsWithBrand");
+			var reponseMessage = await client.GetAsync($"https://localhost:7217/api/RentAcars/{locationId}/true");
 			if (reponseMessage.IsSuccessStatusCode)
 			{
 				var json = await reponseMessage.Content.ReadAsStringAsync();
-				var values = JsonConvert.DeserializeObject<List<ResultCarWithBrandAndPriceDto>>(json);
+				var values = JsonConvert.DeserializeObject<List<ResultRentAcarDto>>(json);
 				return View(values);
 			}
 

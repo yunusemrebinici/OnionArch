@@ -14,5 +14,9 @@ namespace Domain.Entities
 
 		public List<RentAcar> RentAcars { get; set; }
 
+		public List<Reservation> StartLocationList { get; set; }
+
+		public List<Reservation> EndLocationList { get; set; }
+
 	}
 }

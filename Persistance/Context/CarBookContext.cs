@@ -38,5 +38,25 @@ namespace Persistance.Context
 		public DbSet<RentAcar> RentAcars { get; set; }
 		public DbSet<RentAcarProcess> RentAcarProcesses { get; set; }
 		public DbSet<Customer> Customers { get; set; }
+		public DbSet<Reservation> Reservations { get; set; }
+
+
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			modelBuilder.Entity<Reservation>()
+
+				.HasOne(x => x.StartLocation)
+				.WithMany(y => y.StartLocationList)
+				.HasForeignKey(x => x.StartLocationID)
+				.OnDelete(DeleteBehavior.ClientSetNull);
+				;
+
+			modelBuilder.Entity<Reservation>()
+				.HasOne(x => x.EndLocation)
+				.WithMany(y => y.EndLocationList)
+				.HasForeignKey(x => x.EndLocationID)
+				.OnDelete(DeleteBehavior.ClientSetNull);
+
+		}
 	}
 }

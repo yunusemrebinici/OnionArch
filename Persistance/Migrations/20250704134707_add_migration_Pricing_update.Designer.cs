@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistance.Context;
 
@@ -11,9 +12,11 @@ using Persistance.Context;
 namespace Persistance.Migrations
 {
     [DbContext(typeof(CarBookContext))]
-    partial class CarBookContextModelSnapshot : ModelSnapshot
+    [Migration("20250704134707_add_migration_Pricing_update")]
+    partial class add_migration_Pricing_update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -299,10 +302,9 @@ namespace Persistance.Migrations
 
                     b.HasKey("CarPricingID");
 
-                    b.HasIndex("PricingID");
+                    b.HasIndex("CarID");
 
-                    b.HasIndex("CarID", "PricingID")
-                        .IsUnique();
+                    b.HasIndex("PricingID");
 
                     b.ToTable("CarPricings");
                 });
@@ -489,6 +491,9 @@ namespace Persistance.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PricingID"));
+
+                    b.Property<int>("CarPricingID")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()

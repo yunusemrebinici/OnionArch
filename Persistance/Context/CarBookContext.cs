@@ -57,6 +57,18 @@ namespace Persistance.Context
 				.HasForeignKey(x => x.EndLocationID)
 				.OnDelete(DeleteBehavior.ClientSetNull);
 
+			
+		
+			// CarPricing tablosu için bileşik benzersiz kısıtlama ekleme
+			modelBuilder.Entity<CarPricing>()
+				.HasIndex(cp => new { cp.CarID, cp.PricingID }) // Hangi sütunların benzersiz olacağını belirt
+				.IsUnique(); // Bu indeksin benzersiz olacağını belirt
+
+			// Eğer CarPricingID'yi birincil anahtar olarak kullanmıyorsanız
+			// ve (CarID, PricingID) ikilisini birincil anahtar yapmak istiyorsanız:
+			// modelBuilder.Entity<CarPricing>()
+			//    .HasKey(cp => new { cp.CarID, cp.PricingID });
+
 		}
 	}
 }

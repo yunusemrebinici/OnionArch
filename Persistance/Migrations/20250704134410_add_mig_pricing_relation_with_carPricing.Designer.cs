@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistance.Context;
 
@@ -11,9 +12,11 @@ using Persistance.Context;
 namespace Persistance.Migrations
 {
     [DbContext(typeof(CarBookContext))]
-    partial class CarBookContextModelSnapshot : ModelSnapshot
+    [Migration("20250704134410_add_mig_pricing_relation_with_carPricing")]
+    partial class add_mig_pricing_relation_with_carPricing
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -299,10 +302,9 @@ namespace Persistance.Migrations
 
                     b.HasKey("CarPricingID");
 
-                    b.HasIndex("PricingID");
+                    b.HasIndex("CarID");
 
-                    b.HasIndex("CarID", "PricingID")
-                        .IsUnique();
+                    b.HasIndex("PricingID");
 
                     b.ToTable("CarPricings");
                 });

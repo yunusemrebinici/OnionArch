@@ -6,6 +6,7 @@ using Application.Features.CQRS.Handlers.CategoryHandlers;
 using Application.Features.CQRS.Handlers.ContactHandlers;
 using Application.Interfaces;
 using Application.Interfaces.IBlogRepositories;
+using Application.Interfaces.ICarPricingRepositories;
 using Application.Interfaces.ICarRepositories;
 using Application.Interfaces.ICommentRepositories;
 using Application.Interfaces.IRentAcarRepositories;
@@ -14,6 +15,7 @@ using Application.Services;
 using Persistance.Context;
 using Persistance.Repositories;
 using Persistance.Repositories.BlogRepositories;
+using Persistance.Repositories.CarPricingRepositories;
 using Persistance.Repositories.CarRepositories;
 using Persistance.Repositories.CommentRepositories;
 using Persistance.Repositories.RentAcarRepositories;
@@ -31,6 +33,7 @@ builder.Services.AddScoped<ITagRepository,TagRepository>();
 builder.Services.AddScoped<ICommentRepository,CommentRepository>();
 builder.Services.AddScoped<IStatisticRepository,StatistsicRepository>();
 builder.Services.AddScoped<IRentAcarRepository,RentAcarRepository>();
+builder.Services.AddScoped<ICarPricingRepository,CarPricingRepository>();
 
 
 builder.Services.AddScoped<CreateAboutCommandHandler>();

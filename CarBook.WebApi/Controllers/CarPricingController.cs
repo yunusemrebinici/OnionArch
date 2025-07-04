@@ -23,6 +23,12 @@ namespace CarBook.WebApi.Controllers
 			return Ok(await _mediator.Send(new GetCarPricingQuery()));
 		}
 
+		[HttpGet("GetPivotedCarPricingsWithDetails")]
+		public async Task<IActionResult> GetPivotedCarPricingsWithDetails()
+		{
+			return Ok(await _mediator.Send(new GetCarPricingWithCarAndPriceQuery()));
+		}
+
 		[HttpGet("{id}")]
 		public async Task<IActionResult> GetCarPricing(int id)
 		{

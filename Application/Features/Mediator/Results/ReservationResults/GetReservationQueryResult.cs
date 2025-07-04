@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace Application.Features.Mediator.Results.ReservationResults
 {
-	public class Reservation
+	public class GetReservationQueryResult
 	{
 		public int ReservationID { get; set; }
 
@@ -20,8 +21,6 @@ namespace Domain.Entities
 
 		public int CarID { get; set; }
 
-		public Car Car { get; set; }
-
 		public int? StartLocationID { get; set; }
 
 		public int? EndLocationID { get; set; }
@@ -33,10 +32,5 @@ namespace Domain.Entities
 		public string? Description { get; set; }
 
 		public string Status { get; set; }
-
-		public Location StartLocation { get; set; }
-
-		public Location EndLocation { get; set; }
-
 	}
 }

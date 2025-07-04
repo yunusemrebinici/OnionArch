@@ -1,0 +1,70 @@
+﻿@model CreateReservationDto
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/UILayoutController/Index.cshtml";
+}
+<style>
+
+	/* Sadece dropdown elementinin basic stilleri */
+	.form-control {
+		width: 100%; /* Kapsayıcısının genişliğini alsın */
+		padding: 8px 12px; /* İç boşluk */
+		border: 1px solid #ccc; /* Basit gri kenarlık */
+		border-radius: 4px; /* Hafif yuvarlak köşeler */
+		background-color: #fff; /* Beyaz arka plan */
+		color: #333; /* Koyu gri yazı rengi */
+		font-size: 16px; /* Okunur bir yazı boyutu */
+		line-height: 1.5; /* Satır yüksekliği */
+	}
+
+		/* Seçeneklerin temel stili */
+		.form-control option {
+			color: #333;
+			background-color: #fff;
+		}
+</style>
+<section class="ftco-section contact-section">
+	<div class="container">
+		<div class="row d-flex mb-5 contact-info">
+			<div class="col-md-10 block-9 mb-md-5 mx-auto">
+				<form method="post" class="bg-light p-5 contact-form">
+
+					<input type="hidden"  asp-for="CarID" value="@ViewBag.carID"/>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Ad" asp-for="Name">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Soyad" asp-for="Surname">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Email" asp-for="Email">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Telefon Numarası" asp-for="Phone">
+					</div>
+					<div class="form-group">
+						<label for="" class="label">Başlangıç Lokasyonu</label>
+						@Html.DropDownListFor(x => x.StartLocationID, (List<SelectListItem>)@ViewBag.SelectListItems, new { @class = "form-control" })
+					</div>
+					<div class="form-group">
+						<label for="" class="label">Bitiş Lokasyonu</label>
+						@Html.DropDownListFor(x => x.EndLocationID, (List<SelectListItem>)@ViewBag.SelectListItems, new { @class = "form-control" })
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Yaşınız" asp-for="Age">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Ehliyet Yaşı" asp-for="DriverLicenceYear">
+					</div>
+					<div class="form-group">
+						<textarea cols="30" rows="7" class="form-control" placeholder="Mesajınız" asp-for="Description"></textarea>
+					</div>
+					<div class="form-group">
+						<button class="btn btn-primary py-3 px-5">Rezervasyon Oluştur</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+

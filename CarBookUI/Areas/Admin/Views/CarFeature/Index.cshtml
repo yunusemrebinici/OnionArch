@@ -1,8 +1,24 @@
-﻿
+﻿@model List<ResultCarFeatureDto>
 @{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/UIAdmin/Index.cshtml";
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/UIAdmin/Index.cshtml";
 }
 
-<h1>Index</h1>
+<form method="post">
+
+	
+
+	@foreach (var item in Model)
+	{
+		<div class="form-group mb-3">
+			<div class="custom-control custom-checkbox">
+				<input type="checkbox" class="custom-control-input" id="checkmeout0" asp-for="@item.available">
+				<label class="custom-control-label" for="checkmeout0">@item.featureName</label>
+			</div>
+		</div>
+
+	}
+	<button type="submit">Güncelle</button>
+	
+</form>
 

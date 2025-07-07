@@ -20,6 +20,7 @@
 							<th>Fiyat</th>
 							<th>Güncelle</th>
 							<th>Sil</th>
+							<th>Özellikleri</th>
 						
 						</tr>
 					</thead>
@@ -34,6 +35,7 @@
 								<td>@item.carPricing</td>
 								<td><a href="/AdminCar/UpdateCar/@item.carID" class="btn btn-success">Güncelle</a></td>
 								<td><a href="/AdminCar/DeleteCar/@item.carID" class="btn btn-danger">Sil</a></td>
+								<td><a href="/Admin/CarFeature/Index/@item.carID" class="btn btn-primary">Git</a></td>
 								
 							</tr>
 						}

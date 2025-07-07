@@ -69,6 +69,9 @@ namespace Persistance.Context
 			// modelBuilder.Entity<CarPricing>()
 			//    .HasKey(cp => new { cp.CarID, cp.PricingID });
 
+			modelBuilder.Entity<CarFeature>()
+				.HasIndex(cf=>new { cf.CarID,cf.FeatureID})
+				.IsUnique();
 		}
 	}
 }

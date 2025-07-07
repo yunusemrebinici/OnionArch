@@ -23,7 +23,7 @@ namespace CarBookUI.Areas.Admin.Controllers
 		{
 
 			var client = _httpClientFactory.CreateClient();
-			var responseMessage = await client.GetAsync("https://localhost:7217/api/CarFeatures/"+id);
+			var responseMessage = await client.GetAsync("https://localhost:7217/api/CarFeatures/" + id);
 			if (responseMessage.IsSuccessStatusCode)
 			{
 				var json = await responseMessage.Content.ReadAsStringAsync();
@@ -31,10 +31,10 @@ namespace CarBookUI.Areas.Admin.Controllers
 				return View(values);
 			}
 			return View();
-			
+
 		}
 
-		[HttpPost]
+		[HttpPost("{id}")]
 		public async Task<IActionResult> Index(List<ResultCarFeatureDto> changeStatus)
 		{
 			CarFeatureStatusChangeDto change= new CarFeatureStatusChangeDto();

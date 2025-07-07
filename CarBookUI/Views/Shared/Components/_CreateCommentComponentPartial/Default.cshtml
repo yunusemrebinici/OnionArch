@@ -1,0 +1,41 @@
+﻿@model CreateCommentDto
+<div class="comment-form-wrap pt-5">
+	<h3 class="mb-5">Bir Yorum Bırakın</h3>
+	<form method="post" asp-action="CreateComment" asp-controller="Blog" class="p-5 bg-light">
+		<div class="form-group">
+			<input type="hidden" value="@ViewBag.Id" asp-for="blogID" />
+			 
+			<label for="name">Ad SoyAd</label> 
+			<input type="text" class="form-control" asp-for="name"  id="name">
+		</div>
+		<div class="form-group">
+			<label for="email">Email</label>
+			<input type="text" class="form-control" asp-for="email" id="email">
+		</div>
+		<div class="form-group">
+			<label for="website">Konu</label>
+			<input type="text" class="form-control" id="website" asp-for="title">
+		</div>
+
+        <div class="form-group">
+            <label for="coverImage">Cinsiyet</label>
+            <select asp-for="coverImage" class="form-control" id="coverImage">
+                <option value="https://fekrait.com/uploads/topics/16750304198773.jpg">
+                    Erkek
+                </option>
+                <option value="https://easy-feedback.de/wp-content/uploads/2022/10/Employee-Journey-What-it-is-and-how-to-improve-it.jpg">
+                    Kadın
+                </option>
+            </select>
+        </div>
+
+		<div class="form-group">
+			<label for="message">Yorum</label>
+			<textarea id="message"  cols="30" rows="10" asp-for="blogComment" class="form-control"></textarea>
+		</div>
+		<div class="form-group">
+			<input type="submit" value="Gönder" class="btn py-3 px-4 btn-primary">
+		</div>
+
+	</form>
+</div>

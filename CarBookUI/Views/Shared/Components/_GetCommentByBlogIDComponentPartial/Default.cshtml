@@ -1,0 +1,31 @@
+﻿@model List<ResultCommentDto>
+@{
+	ViewData["Title"] = "Default";
+	
+
+}
+
+
+	<h3 class="mb-5">@ViewBag.count Yorum</h3>
+	<ul class="comment-list">
+		@foreach (var item in Model)
+		{
+			
+			<li class="comment">
+				<div class="vcard bio">
+					<img src="@item.coverImage" alt="Image placeholder">
+				</div>
+				<div class="comment-body">
+					<h3>@item.name </h3>
+					<div class="meta">@item.email</div><br />
+					<div class="meta">@item.title</div>
+					<p>@item.blogComment</p>
+					<p><a href="#" class="reply">Yorum</a></p>
+				</div>
+			</li>
+		}
+
+	</ul>
+	
+
+

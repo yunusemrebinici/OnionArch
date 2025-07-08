@@ -1,0 +1,51 @@
+﻿@model List<GetLast5CarsDetailDashboardDto>
+@{
+	int count = 0;
+}
+<div class="col-xl-6">
+	<div class="card">
+		<div class="card-body">
+
+			<h4 class="card-title">Araç</h4>
+			<p class="card-subtitle mb-4 font-size-13">
+				Son 3 Aaraç Bilgisi
+			</p>
+
+			<div class="table-responsive">
+				<table class="table table-centered table-hover table-xl mb-0" id="recent-orders">
+					<thead>
+						<tr>
+							<th class="border-top-0">#</th>
+							<th class="border-top-0">Marka</th>
+							<th class="border-top-0">Model</th>
+							<th class="border-top-0">Günlük</th>
+							<th class="border-top-0">Haftalık</th>
+							<th class="border-top-0">Aylık</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in Model)
+						{
+							count++;
+							<tr>
+								<td class="text-truncate">@count</td>
+								<td class="text-truncate">@item.brand</td>
+								<td>
+									<span class="badge badge-soft-secondary p-2">@item.model</span>
+								</td>
+								
+								<td class="text-truncate">@item.dayAmount</td>
+								<td class="text-truncate">@item.weekAmount</td>
+								<td class="text-truncate">@item.monthAmount</td>
+							</tr>
+						}
+
+
+					</tbody>
+				</table>
+			</div>
+
+		</div> <!-- end card-body-->
+	</div> <!-- end card-->
+</div> <!-- end col -->

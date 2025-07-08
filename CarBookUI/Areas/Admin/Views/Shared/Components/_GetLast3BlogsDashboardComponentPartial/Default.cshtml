@@ -1,0 +1,54 @@
+﻿@model List<GetLast3BlogsDashboardDto>
+@{
+	int count = 0;
+}
+<div class="col-xl-6">
+	<div class="card">
+		<div class="card-body">
+
+			<h4 class="card-title">Blog</h4>
+			<p class="card-subtitle mb-4 font-size-13">
+			  Son 3 Blog Konu Başlığı
+			</p>
+
+			<div class="table-responsive">
+				<table class="table table-centered table-hover table-xl mb-0" id="recent-orders">
+					<thead>
+						<tr>
+							<th class="border-top-0">#</th>
+							<th class="border-top-0">Yazar</th>
+							<th class="border-top-0">Başlık</th>
+							<th class="border-top-0">Popülarite</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in Model)
+						{
+							count++;
+							<tr>
+								<td class="text-truncate">@count</td>
+								<td class="text-truncate">@item.authorName</td>
+								<td>
+									<span class="badge badge-soft-secondary p-2">@item.title</span>
+								</td>
+								<td>
+									<div class="progress" style="height: 6px;">
+										<div class="progress-bar progress-bar-striped bg-secondary"
+											 role="progressbar" aria-valuenow="85"
+											 aria-valuemin="20" aria-valuemax="100"
+											 style="width:85%"></div>
+									</div>
+								</td>
+								<td class="text-truncate">@item.date.ToString("dd-MMM-yyyy")</td>
+							</tr>
+						}
+
+
+					</tbody>
+				</table>
+			</div>
+
+		</div> <!-- end card-body-->
+	</div> <!-- end card-->
+</div> <!-- end col -->

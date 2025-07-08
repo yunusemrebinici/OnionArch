@@ -39,7 +39,7 @@ namespace Persistance.Repositories.CarFeatureRepositories
 		
 		public async Task<List<GetCarFeatureQueryResult>> GetGetCarFeatureListByCarId(GetCarFeatureQuery result)
 		{
-			var values= await _context.CarFeatures.Include(x=>x.Feature).ToListAsync();
+			var values= await _context.CarFeatures.Include(x=>x.Feature).Where(z=>z.CarID==result.CarID).ToListAsync();
 			return values.Select(x=> new GetCarFeatureQueryResult
 			{
 				FeatureID = x.FeatureID,

@@ -1,22 +1,68 @@
-﻿
+﻿@model List<GetCarFeatureByIdDto>
+@{
+	
+	int x = 0;
+	
+}
 <div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
+
+
+	
 	<div class="row">
+
 		<div class="col-md-4">
 			<ul class="features">
-				<li class="check"><span class="ion-ios-checkmark"></span>Airconditions</li>
-		
+				@foreach (var item in Model)
+				{
+
+					int stop = 3;
+					<li class="check"><span class="ion-ios-checkmark"></span>@Model[x].featureName</li>
+					if (x != stop) { x++; }
+					else
+					{
+						break;
+					}
+				}
+
 			</ul>
 		</div>
+
+		@{
+			x++;
+		}
 		<div class="col-md-4">
 			<ul class="features">
-				<li class="check"><span class="ion-ios-checkmark"></span>Seat Belt</li>
-		
+				@foreach (var item in Model)
+				{
+
+					int stop = 6;
+					<li class="check"><span class="ion-ios-checkmark"></span>@Model[x].featureName</li>
+					if (x != stop) { x++; }
+					else
+					{
+						break;
+					}
+				}
+
 			</ul>
 		</div>
+		@{
+			x++;
+		}
 		<div class="col-md-4">
 			<ul class="features">
-				<li class="check"><span class="ion-ios-checkmark"></span>Audio input</li>
-		
+				@foreach (var item in Model)
+				{
+
+					int stop = 8;
+					<li class="check"><span class="ion-ios-checkmark"></span>@Model[x].featureName</li>
+					if (x != stop) { x++; }
+					else
+					{
+						break;
+					}
+				}
+
 			</ul>
 		</div>
 	</div>

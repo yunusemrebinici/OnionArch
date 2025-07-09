@@ -23,7 +23,6 @@ namespace CarBookUI.ViewComponents.CarSingleViewComponent
 			{
 				var json = await responseMessage.Content.ReadAsStringAsync();
 				var values = JsonConvert.DeserializeObject<List<GetCarFeatureByIdDto>>(json);
-				ViewBag.count = int.Parse(values.Count.ToString())/3;
 				return View(values);	
 			}
 			return View();

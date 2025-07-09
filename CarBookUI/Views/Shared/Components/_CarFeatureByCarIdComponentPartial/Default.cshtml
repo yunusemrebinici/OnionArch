@@ -1,13 +1,14 @@
 ﻿@model List<GetCarFeatureByIdDto>
 @{
-	
+
 	int x = 0;
-	
+
 }
 <div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
 
 
-	
+	<li class="remove"><span class="ion-ios-close"></span>Sleeping Bed</li>
+
 	<div class="row">
 
 		<div class="col-md-4">
@@ -16,7 +17,15 @@
 				{
 
 					int stop = 3;
-					<li class="check"><span class="ion-ios-checkmark"></span>@Model[x].featureName</li>
+					if (Model[x].available == true)
+					{
+							<li class="check"><span class="ion-ios-checkmark"></span>@Model[x].featureName</li>
+					}
+					else
+					{
+						<li class="remove"><span class="ion-ios-close"></span>@Model[x].featureName</li>
+					}
+				
 					if (x != stop) { x++; }
 					else
 					{
@@ -35,8 +44,15 @@
 				@foreach (var item in Model)
 				{
 
-					int stop = 6;
-					<li class="check"><span class="ion-ios-checkmark"></span>@Model[x].featureName</li>
+					int stop = 7;
+					if (Model[x].available == true)
+					{
+						<li class="check"><span class="ion-ios-checkmark"></span>@Model[x].featureName</li>
+					}
+					else
+					{
+						<li class="remove"><span class="ion-ios-close"></span>@Model[x].featureName</li>
+					}
 					if (x != stop) { x++; }
 					else
 					{
@@ -54,8 +70,15 @@
 				@foreach (var item in Model)
 				{
 
-					int stop = 8;
-					<li class="check"><span class="ion-ios-checkmark"></span>@Model[x].featureName</li>
+					int stop = 11;
+					if (Model[x].available == true)
+					{
+						<li class="check"><span class="ion-ios-checkmark"></span>@Model[x].featureName</li>
+					}
+					else
+					{
+						<li class="remove"><span class="ion-ios-close"></span>@Model[x].featureName</li>
+					}
 					if (x != stop) { x++; }
 					else
 					{

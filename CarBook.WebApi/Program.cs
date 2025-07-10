@@ -5,6 +5,7 @@ using Application.Features.CQRS.Handlers.CarHandlers;
 using Application.Features.CQRS.Handlers.CategoryHandlers;
 using Application.Features.CQRS.Handlers.ContactHandlers;
 using Application.Interfaces;
+using Application.Interfaces.IAppUserRepositories;
 using Application.Interfaces.IBlogRepositories;
 using Application.Interfaces.ICarDescriptionRepositories;
 using Application.Interfaces.ICarFeatureRepositories;
@@ -14,8 +15,11 @@ using Application.Interfaces.ICommentRepositories;
 using Application.Interfaces.IRentAcarRepositories;
 using Application.Interfaces.IStatisticRepositories;
 using Application.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using Persistance.Context;
 using Persistance.Repositories;
+using Persistance.Repositories.AppUserRepositories;
 using Persistance.Repositories.BlogRepositories;
 using Persistance.Repositories.CarDescriptionRepositories;
 using Persistance.Repositories.CarFeatureRepositories;
@@ -25,6 +29,7 @@ using Persistance.Repositories.CommentRepositories;
 using Persistance.Repositories.RentAcarRepositories;
 using Persistance.Repositories.StatisticRepositories;
 using Persistance.Repositories.TagRepositories;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,6 +45,7 @@ builder.Services.AddScoped<IRentAcarRepository,RentAcarRepository>();
 builder.Services.AddScoped<ICarPricingRepository,CarPricingRepository>();
 builder.Services.AddScoped<ICarFeatureRepository,CarFeatureRepository>();
 builder.Services.AddScoped<ICarDescriptionRepository,CarDescriptionRepository>();
+builder.Services.AddScoped<IAppUserRepository,AppUserRepository>();
 
 
 builder.Services.AddScoped<CreateAboutCommandHandler>();
@@ -83,6 +89,19 @@ builder.Services.AddScoped<UpdateContactCommandHandler>();
 
 builder.Services.AddApplicationService(builder.Configuration);
 
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
+{
+	opt.RequireHttpsMetadata = false;
+	opt.TokenValidationParameters = new TokenValidationParameters
+	{
+		ValidAudience = "https://localhost",
+		ValidIssuer = "https://localhost",
+		ClockSkew = TimeSpan.Zero,
+		IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("carbookcarbookcarbookcarbook")),
+		ValidateLifetime = true,
+		ValidateIssuerSigningKey = true,
+	};
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

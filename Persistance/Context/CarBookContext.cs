@@ -39,6 +39,8 @@ namespace Persistance.Context
 		public DbSet<RentAcarProcess> RentAcarProcesses { get; set; }
 		public DbSet<Customer> Customers { get; set; }
 		public DbSet<Reservation> Reservations { get; set; }
+		public DbSet<AppRole> AppRoles { get; set; }
+		public DbSet<AppUser> AppUsers { get; set; }
 
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)

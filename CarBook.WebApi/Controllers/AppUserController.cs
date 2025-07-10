@@ -1,4 +1,5 @@
 ﻿using Application.Features.Mediator.Quaries.AppUserQuaries;
+using Application.Tools;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,10 +18,18 @@ namespace CarBook.WebApi.Controllers
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> GetFilter(string appuser,int password)
+		public async Task<IActionResult> Login(string appuser,int password)
 		{
-				
-			return Ok(await _mediator.Send(new GetCheckAppUserQuery(appuser,password)));
+
+			var value = await _mediator.Send(new GetCheckAppUserQuery(appuser, password));
+			if (value.IsExist == true) { 
+			
+				return Created("",JwtTokenGenerator.GenerateToken(value));
+			}
+			{
+				return Ok();
+			}
+			
 		}
 	}
 }

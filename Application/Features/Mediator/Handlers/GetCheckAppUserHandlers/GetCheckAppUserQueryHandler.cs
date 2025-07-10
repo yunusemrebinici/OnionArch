@@ -3,8 +3,10 @@ using Application.Features.Mediator.Quaries.AppUserQuaries;
 using Application.Features.Mediator.Results.AppUserResults;
 using Application.Interfaces;
 using Application.Interfaces.IAppUserRepositories;
+using Application.Tools;
 using Domain.Entities;
 using MediatR;
+using Microsoft.IdentityModel.JsonWebTokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,14 +30,18 @@ namespace Application.Features.Mediator.Handlers.GetCheckAppUserHandlers
 			var value = await _appUserRepository.GetFilterAsync(x => x.UserName == request.UserName && x.Password == request.Password);
 			if (value == null) { 
 			  user.IsExist= false;
+				return user;
 			}
 			{
 				user.IsExist = true;
 				user.UserName = request.UserName;
 				user.Role = Enum.GetName(typeof(RoleDto), value.AppRoleID);
 
+				return user;
+				
+
 			}
-			return user;
+			
 		}
 	}
 }

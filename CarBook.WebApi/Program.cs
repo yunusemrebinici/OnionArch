@@ -15,6 +15,7 @@ using Application.Interfaces.ICommentRepositories;
 using Application.Interfaces.IRentAcarRepositories;
 using Application.Interfaces.IStatisticRepositories;
 using Application.Services;
+using Application.Tools;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Persistance.Context;
@@ -94,10 +95,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 	opt.RequireHttpsMetadata = false;
 	opt.TokenValidationParameters = new TokenValidationParameters
 	{
-		ValidAudience = "https://localhost",
-		ValidIssuer = "https://localhost",
+		ValidAudience = JwtTokenDefaults.ValidAudience,
+		ValidIssuer = JwtTokenDefaults.ValidIssuer,
 		ClockSkew = TimeSpan.Zero,
-		IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("carbookcarbookcarbookcarbook")),
+		IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtTokenDefaults.key)),
 		ValidateLifetime = true,
 		ValidateIssuerSigningKey = true,
 	};
@@ -118,6 +119,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

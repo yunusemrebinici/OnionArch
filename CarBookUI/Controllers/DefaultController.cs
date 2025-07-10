@@ -1,4 +1,5 @@
 ﻿using DTO.LocationDtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
@@ -6,6 +7,7 @@ using System.Net.Http;
 
 namespace CarBookUI.Controllers
 {
+	
 	public class DefaultController : Controller
 	{
 		private readonly IHttpClientFactory _httpClientFactory;

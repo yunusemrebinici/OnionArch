@@ -7,11 +7,11 @@ namespace CarBookUI.Areas.Admin.Controllers
 {
 	[Area("Admin")]
 	[Route("Admin/[Controller]/[Action]")]
-	public class LoginController : Controller
+	public class RegisterController : Controller
 	{
 		private readonly IHttpClientFactory _httpClientFactory;
 
-		public LoginController(IHttpClientFactory httpClientFactory)
+		public RegisterController(IHttpClientFactory httpClientFactory)
 		{
 			_httpClientFactory = httpClientFactory;
 		}
@@ -24,19 +24,22 @@ namespace CarBookUI.Areas.Admin.Controllers
 
 
 		[HttpPost]
-		public async Task<IActionResult> Index(LoginDto login)
+		public async Task<IActionResult> Index(CreateLoginDto login)
 		{
 			var client = _httpClientFactory.CreateClient();
 			var json = JsonConvert.SerializeObject(login);
 			StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 			// API URL'ine POST isteği atılıyor
-			var responseMessage = await client.PostAsync("https://localhost:7217/api/AppUser", content);
+			var responseMessage = await client.PostAsync("https://localhost:7217/api/AppUser/Register", content);
 			if (responseMessage.IsSuccessStatusCode)
 			{
-				return RedirectToAction("Index", "About");
+				return RedirectToAction("Index", "Login");
 			}
-			
+
 			return View();
 		}
 	}
 }
+
+	
+

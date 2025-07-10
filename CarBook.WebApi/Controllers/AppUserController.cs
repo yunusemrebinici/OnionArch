@@ -19,14 +19,15 @@ namespace CarBook.WebApi.Controllers
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> Login(string appuser, int password)
+		public async Task<IActionResult> Login(GetCheckAppUserQuery query)
 		{
 
-			var value = await _mediator.Send(new GetCheckAppUserQuery(appuser, password));
+			var value = await _mediator.Send(new GetCheckAppUserQuery(query.UserName,query.Password));
 			if (value.IsExist == true)
 			{
 
 				return Created("", JwtTokenGenerator.GenerateToken(value));
+				
 			}
 			{
 				return Ok();

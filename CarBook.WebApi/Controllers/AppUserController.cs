@@ -1,4 +1,5 @@
-﻿using Application.Features.Mediator.Quaries.AppUserQuaries;
+﻿using Application.Features.Mediator.Commands.AppUserCommands;
+using Application.Features.Mediator.Quaries.AppUserQuaries;
 using Application.Tools;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -18,18 +19,31 @@ namespace CarBook.WebApi.Controllers
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> Login(string appuser,int password)
+		public async Task<IActionResult> Login(string appuser, int password)
 		{
 
 			var value = await _mediator.Send(new GetCheckAppUserQuery(appuser, password));
-			if (value.IsExist == true) { 
-			
-				return Created("",JwtTokenGenerator.GenerateToken(value));
+			if (value.IsExist == true)
+			{
+
+				return Created("", JwtTokenGenerator.GenerateToken(value));
 			}
 			{
 				return Ok();
 			}
-			
+
+		}
+
+		[HttpPost("Register")]
+		public async Task<IActionResult> Register(CreateAppUserCommand createAppUser)
+		{
+			await _mediator.Send(new CreateAppUserCommand()
+			{
+				AppRoleID = createAppUser.AppRoleID,
+				Password = createAppUser.Password,
+				UserName = createAppUser.UserName,
+			});
+			return Ok("Ekleme Başarılı");
 		}
 	}
 }

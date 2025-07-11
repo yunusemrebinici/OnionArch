@@ -3,6 +3,53 @@
 	Layout = "~/Views/UIAdmin/Index.cshtml";
 }
 
+
+
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+
+
+<script type="text/javascript">
+	$(document).ready(() => {
+		var connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:7217/StatisticHub").build();
+		$("#constatus").text(connection.state);
+		connection.start().then(() => {
+			$("#constatus").text(connection.state);
+			setInterval(() => {
+				connection.invoke("Test");
+			}, 1000);
+		}).catch((err) => { console.log(err) });
+
+		connection.on("ReceiveCarCount", (value) => {
+			$("#car").text(value);
+		});
+
+		 connection.on("ReceiveBrandCount", (value) => {
+			$("#brand").text(value);
+		});
+
+		 connection.on("ReceiveBlogCount", (value) => {
+			$("#blog").text(value);
+		});
+
+		 connection.on("ReceiveLocationCount", (value) => {
+			$("#location").text(value);
+		});
+
+
+	});
+</script>
+
+
+
+
+
+
+
+
+
+
 <div class="row">
 	<div class="col-md-6 col-xl-3">
 		<div class="card bg-primary border-primary">
@@ -36,7 +83,7 @@
 				<div class="row d-flex align-items-center mb-4">
 					<div class="col-8">
 						<h2 class="d-flex align-items-center text-white mb-0">
-							@ViewBag.blogCount
+							<strong id="blog"></strong>
 						</h2>
 					</div>
 				</div>
@@ -58,7 +105,7 @@
 				<div class="row d-flex align-items-center mb-4">
 					<div class="col-8">
 						<h2 class="d-flex align-items-center text-white mb-0">
-							@ViewBag.brandCount
+							<strong id="brand"></strong>
 						</h2>
 					</div>
 
@@ -81,7 +128,7 @@
 				<div class="row d-flex align-items-center mb-4">
 					<div class="col-8">
 						<h2 class="d-flex align-items-center text-white mb-0">
-							@ViewBag.carCount
+							<strong id="car"></strong>
 						</h2>
 					</div>
 				</div>

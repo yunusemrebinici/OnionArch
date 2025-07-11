@@ -21,6 +21,15 @@ namespace CarBook.WebApi.Hubs
 		{
 			var value= await _statisticRepository.GetCarCount();
 			await Clients.All.SendAsync("ReceiveCarCount", value);
+
+			var brandcount = await _statisticRepository.GetBrandCount();
+			await Clients.All.SendAsync("ReceiveBrandCount", brandcount);
+
+			var blogcount = await _statisticRepository.GetBlogCount();
+			await Clients.All.SendAsync("ReceiveBlogCount", blogcount);
+
+			var locationcount = await _statisticRepository.GetLocationCount();
+			await Clients.All.SendAsync("ReceiveLocationCount", locationcount);
 		}
 
 	}

@@ -7,41 +7,58 @@
 
 @section Scripts
 {
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <script type="text/javascript">
-                            $(document).ready(() => {
-                                var connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:7217/StatisticHub").build();
-                                $("#constatus").text(connection.state);
-                                connection.start().then(() => {
-                                    $("#constatus").text(connection.state);
-                                    setInterval(() => {
-                                        connection.invoke("Test");
-                                    }, 1000);
-                                }).catch((err) => { console.log(err) });
+	<div class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card">
+						<script type="text/javascript">
+							$(document).ready(() => {
+								var connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:7217/StatisticHub").build();
+								$("#constatus").text(connection.state);
+								connection.start().then(() => {
+									$("#constatus").text(connection.state);
+									setInterval(() => {
+										connection.invoke("Test");
+									}, 1000);
+								}).catch((err) => { console.log(err) });
 
-                                connection.on("ReceiveCarCount", (value) => {
-                                    $("#receivecarcount").text(value);
-                                });
-                            });
-                        </script>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+								connection.on("ReceiveCarCount", (value) => {
+									$("#car").text(value);
+								});
+
+								 connection.on("ReceiveBrandCount", (value) => {
+									$("#brand").text(value);
+								});
+
+								 connection.on("ReceiveBlogCount", (value) => {
+									$("#blog").text(value);
+								});
+
+								 connection.on("ReceiveLocationCount", (value) => {
+									$("#location").text(value);
+								});
+
+
+							});
+						</script>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 }
 
 <div class="row">
-    <div class="col-md-8 offset-2">
-        <div class="alert alert-info">Bağlantının Durumu: <strong id="constatus"></strong></div>
-    </div>
-    <div class="col-md-8 offset-2">
-        <div class="alert alert-danger">Araba Sayısı: <strong id="receivecarcount"></strong></div>
-    </div>
+	<div class="col-md-8 offset-2">
+		<div class="alert alert-info">Bağlantının Durumu: <strong id="constatus"></strong></div>
+	</div>
+
+	<strong id="car"></strong>
+	<div class="alert alert-danger">Araba Sayısı: <strong id="brand"></strong></div>
+	<div class="alert alert-danger">Araba Sayısı: <strong id="blog"></strong></div>
+	<div class="alert alert-danger">Araba Sayısı: <strong id="location"></strong></div>
+
 </div>
 
 

@@ -1,6 +1,8 @@
 ﻿using Application.Features.Mediator.Commands.AppUserCommands;
 using Application.Features.Mediator.Quaries.AppUserQuaries;
 using Application.Tools;
+using Application.Validators;
+using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -38,13 +40,22 @@ namespace CarBook.WebApi.Controllers
 		[HttpPost("Register")]
 		public async Task<IActionResult> Register(CreateAppUserCommand createAppUser)
 		{
-			await _mediator.Send(new CreateAppUserCommand()
+			AppUserValidate validationRules = new AppUserValidate();
+			var validate=validationRules.Validate(createAppUser);
+
+			if (validate.IsValid)
 			{
-				AppRoleID = createAppUser.AppRoleID,
-				Password = createAppUser.Password,
-				UserName = createAppUser.UserName,
-			});
-			return Ok("Ekleme Başarılı");
+				await _mediator.Send(new CreateAppUserCommand()
+				{
+					AppRoleID = createAppUser.AppRoleID,
+					Password = createAppUser.Password,
+					UserName = createAppUser.UserName,
+				});
+				return Ok("Ekleme Başarılı");
+			}
+			return BadRequest(validate.Errors);
+			
+			
 		}
 	}
 }

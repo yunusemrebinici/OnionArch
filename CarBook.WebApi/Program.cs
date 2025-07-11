@@ -16,6 +16,9 @@ using Application.Interfaces.IRentAcarRepositories;
 using Application.Interfaces.IStatisticRepositories;
 using Application.Services;
 using Application.Tools;
+using Application.Validators;
+using Domain.Entities;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Persistance.Context;
@@ -30,6 +33,7 @@ using Persistance.Repositories.CommentRepositories;
 using Persistance.Repositories.RentAcarRepositories;
 using Persistance.Repositories.StatisticRepositories;
 using Persistance.Repositories.TagRepositories;
+using System.Reflection;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -89,6 +93,11 @@ builder.Services.AddScoped<RemoveContactCommandHandler>();
 builder.Services.AddScoped<UpdateContactCommandHandler>();
 
 builder.Services.AddApplicationService(builder.Configuration);
+
+builder.Services.AddControllers().AddFluentValidation(x =>
+{
+	x.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+});
 
 builder.Services.AddCors(opt =>
 {

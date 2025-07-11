@@ -21,6 +21,7 @@ namespace Application.Features.Mediator.Handlers.AppUserHandlers
 
 		public async Task Handle(CreateAppUserCommand request, CancellationToken cancellationToken)
 		{
+
 			request.AppRoleID = 1;
 			await _repository.CreateAsync(new AppUser(){
 				AppRoleID=request.AppRoleID,

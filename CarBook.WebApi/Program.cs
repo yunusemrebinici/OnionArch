@@ -17,6 +17,7 @@ using Application.Interfaces.IStatisticRepositories;
 using Application.Services;
 using Application.Tools;
 using Application.Validators;
+using CarBook.WebApi.Hubs;
 using Domain.Entities;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -40,17 +41,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddScoped<CarBookContext>();
-builder.Services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped(typeof(ICarRepository), typeof(CarRepository));
-builder.Services.AddScoped<IBlogRepository,BlogRepository>();
-builder.Services.AddScoped<ITagRepository,TagRepository>();
-builder.Services.AddScoped<ICommentRepository,CommentRepository>();
-builder.Services.AddScoped<IStatisticRepository,StatistsicRepository>();
-builder.Services.AddScoped<IRentAcarRepository,RentAcarRepository>();
-builder.Services.AddScoped<ICarPricingRepository,CarPricingRepository>();
-builder.Services.AddScoped<ICarFeatureRepository,CarFeatureRepository>();
-builder.Services.AddScoped<ICarDescriptionRepository,CarDescriptionRepository>();
-builder.Services.AddScoped<IAppUserRepository,AppUserRepository>();
+builder.Services.AddScoped<IBlogRepository, BlogRepository>();
+builder.Services.AddScoped<ITagRepository, TagRepository>();
+builder.Services.AddScoped<ICommentRepository, CommentRepository>();
+builder.Services.AddScoped<IStatisticRepository, StatistsicRepository>();
+builder.Services.AddScoped<IRentAcarRepository, RentAcarRepository>();
+builder.Services.AddScoped<ICarPricingRepository, CarPricingRepository>();
+builder.Services.AddScoped<ICarFeatureRepository, CarFeatureRepository>();
+builder.Services.AddScoped<ICarDescriptionRepository, CarDescriptionRepository>();
+builder.Services.AddScoped<IAppUserRepository, AppUserRepository>();
 
 
 builder.Services.AddScoped<CreateAboutCommandHandler>();
@@ -92,6 +93,8 @@ builder.Services.AddScoped<GetContactByIdQueryHandler>();
 builder.Services.AddScoped<RemoveContactCommandHandler>();
 builder.Services.AddScoped<UpdateContactCommandHandler>();
 
+builder.Services.AddHttpClient();
+
 builder.Services.AddApplicationService(builder.Configuration);
 
 builder.Services.AddControllers().AddFluentValidation(x =>
@@ -124,6 +127,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 	};
 });
 
+builder.Services.AddSignalR();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -138,6 +143,7 @@ if (app.Environment.IsDevelopment())
 	app.UseSwagger();
 	app.UseSwaggerUI();
 }
+	
 
 app.UseCors("CorsPolicy");
 
@@ -148,5 +154,5 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
-
+app.MapHub<StatisticHub>("/StatisticHub");
 app.Run();

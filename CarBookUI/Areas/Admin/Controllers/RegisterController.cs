@@ -1,10 +1,12 @@
 ﻿using DTO.LoginDtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 
 namespace CarBookUI.Areas.Admin.Controllers
 {
+	[AllowAnonymous]
 	[Area("Admin")]
 	[Route("Admin/[Controller]/[Action]")]
 	public class RegisterController : Controller

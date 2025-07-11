@@ -30,6 +30,8 @@ namespace Application.Features.Mediator.Handlers.GetCheckAppUserHandlers
 			var value = await _appUserRepository.GetFilterAsync(x => x.UserName == request.UserName && x.Password == request.Password);
 			if (value == null) { 
 			  user.IsExist= false;
+				user.UserName = request.UserName;
+				user.Role = "başarısız";
 				return user;
 			}
 			{

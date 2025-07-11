@@ -1,13 +1,15 @@
 ﻿using DTO.AdminBrandDtos;
-
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
 using System.Net.Http;
 using System.Text;
 
+
 namespace BrandBookUI.Controllers
 {
+	[Authorize(Roles = "Admin")]
 	public class AdminBrandController : Controller
 	{
 		private readonly IHttpClientFactory _httpClientFactory;

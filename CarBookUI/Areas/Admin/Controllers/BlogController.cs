@@ -1,9 +1,11 @@
 ﻿using DTO.AdminBlogDtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace CarBookUI.Areas.Admin.Controllers
 {
+	[Authorize]
 	[Area("Admin")]
 	[Route("Admin/[Controller]/[Action]")]
 	public class BlogController : Controller

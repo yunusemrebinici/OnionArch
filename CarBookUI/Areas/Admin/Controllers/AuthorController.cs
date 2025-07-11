@@ -1,10 +1,13 @@
 ﻿using DTO.AdminAuthorDtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Data;
 using System.Text;
 
 namespace CarBookUI.Areas.Admin.Controllers
 {
+	[Authorize(Roles = "Admin")]
 	[Area("Admin")]
 	[Route("Admin/[Controller]/[Action]")]
 	public class AuthorController : Controller

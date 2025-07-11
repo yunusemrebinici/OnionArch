@@ -90,6 +90,17 @@ builder.Services.AddScoped<UpdateContactCommandHandler>();
 
 builder.Services.AddApplicationService(builder.Configuration);
 
+builder.Services.AddCors(opt =>
+{
+	opt.AddPolicy("CorsPolicy", builder =>
+	{
+		builder.AllowAnyHeader()
+		.AllowAnyMethod()
+		.SetIsOriginAllowed((host) => true)
+		.AllowCredentials();
+	});
+});
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
 {
 	opt.RequireHttpsMetadata = false;
@@ -100,9 +111,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 		ClockSkew = TimeSpan.Zero,
 		IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtTokenDefaults.key)),
 		ValidateLifetime = true,
-		ValidateIssuerSigningKey = true,
+		ValidateIssuerSigningKey = true
 	};
 });
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -117,6 +129,8 @@ if (app.Environment.IsDevelopment())
 	app.UseSwagger();
 	app.UseSwaggerUI();
 }
+
+app.UseCors("CorsPolicy");
 
 app.UseHttpsRedirection();
 

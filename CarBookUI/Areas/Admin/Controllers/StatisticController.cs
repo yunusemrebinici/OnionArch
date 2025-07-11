@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace CarBookUI.Areas.Admin.Controllers
 {
-	[Authorize(Roles ="Admin")]
+	[Authorize]
 	[Area("Admin")]
 	[Route("/Admin/[Controller]/[Action]")]
 	public class StatisticController : Controller

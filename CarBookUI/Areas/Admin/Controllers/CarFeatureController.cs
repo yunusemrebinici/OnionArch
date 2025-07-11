@@ -1,5 +1,6 @@
 ﻿using DTO.AdminCarFeatureDtos;
 using DTO.AdminCategoryDtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Net.Http;
@@ -7,6 +8,7 @@ using System.Text;
 
 namespace CarBookUI.Areas.Admin.Controllers
 {
+	[Authorize(Roles = "Admin")]
 	[Area("Admin")]
 	[Route("/Admin/[Controller]/[Action]")]
 	public class CarFeatureController : Controller

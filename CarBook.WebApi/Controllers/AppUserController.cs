@@ -30,7 +30,7 @@ namespace CarBook.WebApi.Controllers
 				
 			}
 			{
-				return Ok();
+				return Ok(value);
 			}
 
 		}

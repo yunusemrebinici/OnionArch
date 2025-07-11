@@ -1,6 +1,7 @@
 ﻿using DTO.AdminBrandDtos;
 using DTO.AdminCarDtos;
 using DTO.AdminCarPricingDtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
@@ -8,6 +9,7 @@ using System.Text;
 
 namespace CarBookUI.Controllers
 {
+	[Authorize(Roles = "Admin")]
 	public class AdminCarController : Controller
 	{
 		private readonly IHttpClientFactory _httpClientFactory;

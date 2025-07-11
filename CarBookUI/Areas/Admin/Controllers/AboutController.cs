@@ -6,7 +6,7 @@ using System.Text;
 
 namespace CarBookUI.Areas.Admin.Controllers
 {
-	[Authorize(Roles ="Admin")]
+	[Authorize]
 	[Area("Admin")]
 	[Route("Admin/[controller]/[action]")]
 	public class AboutController : Controller

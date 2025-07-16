@@ -43,7 +43,8 @@ Bu proje, modern web teknolojileri kullanılarak geliştirilmiş olup, yüksek p
     * **SignalR:** Canlı veri takibi ve anlık bildirimler gibi gerçek zamanlı iletişim özellikleri için kullanılmıştır.
 * **Diğer Özellikler:**
     * **View Components ve Areas:** MVC yapısında bileşen tabanlı geliştirme ve modüler yapılandırma için kullanılmıştır.
-
+ 
+*-Proje Murat Yücedağ eğitimleri bünyesinde geliştirilmiştir.
 ## 🚀 Kurulum Adımları
 
 Projeyi yerel geliştirme ortamınızda çalıştırmak için aşağıdaki adımları takip edin:
@@ -64,6 +65,17 @@ Projeyi yerel geliştirme ortamınızda çalıştırmak için aşağıdaki adım
 Buraya projenizden ekran görüntüleri ekleyebilirsiniz. Örneğin:
 
 ![image alt](https://github.com/yunusemrebinici/OnionArch/blob/master/Images/1.png)
+![image alt](https://github.com/yunusemrebinici/OnionArch/blob/master/Images/2.png)
+![image alt](https://github.com/yunusemrebinici/OnionArch/blob/master/Images/3.png)
+![image alt](https://github.com/yunusemrebinici/OnionArch/blob/master/Images/4.png)
+![image alt](https://github.com/yunusemrebinici/OnionArch/blob/master/Images/5.png)
+![image alt](https://github.com/yunusemrebinici/OnionArch/blob/master/Images/6.png)
+![image alt](https://github.com/yunusemrebinici/OnionArch/blob/master/Images/7.png)
+![image alt](https://github.com/yunusemrebinici/OnionArch/blob/master/Images/8.png)
+![image alt](https://github.com/yunusemrebinici/OnionArch/blob/master/Images/9.png)
+![image alt](https://github.com/yunusemrebinici/OnionArch/blob/master/Images/10.png)
+
+
 
 ---
 

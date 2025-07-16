@@ -1,4 +1,5 @@
-﻿using Application.Features.CQRS.Results.CarResults;
+﻿using Application.Features.CQRS.Commands.CarCommands;
+using Application.Features.CQRS.Results.CarResults;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,7 @@ namespace Application.Interfaces.ICarRepositories
 		Task<List<GetLast5CarsWithBrandQueryResult>> GetLast5CarsWithBrandQueryResult();
 
 		Task <int> GetLastCarById();
+
+		Task CreateCarWithFeatureCommand(CreateCarCommand create);
 	}
 }

@@ -18,6 +18,7 @@ namespace CarBook.WebApi.Controllers
 		private readonly GetCarWithBrandAndPriceQueryHandler _getCarWithBrandQueryHandler;
 		private readonly GetLast5CarsWithBrandQueryHandler _getLast5CarsWithBrandQueryHandler;
 		private readonly GetLastCarByIdQueryHandler _getLastCarByIdQueryHandler;
+		private readonly CreateCarWihtFeatureCommandHandler _createCarWihtFeatureCommandHandler;
 
 		public CarsController(
 			CreateCarCommandHandler createCommandHandler,
@@ -26,7 +27,9 @@ namespace CarBook.WebApi.Controllers
 			RemoveCarCommandHandler removeCarCommandHandler,
 			UpdateCarCommandHandler updateCarCommandHandler,
 			GetCarWithBrandAndPriceQueryHandler getCarWithBrandQueryHandler,
-			GetLast5CarsWithBrandQueryHandler getLast5CarsWithBrandQueryHandler, GetLastCarByIdQueryHandler getLastCarByIdQueryHandler)
+			GetLast5CarsWithBrandQueryHandler getLast5CarsWithBrandQueryHandler, GetLastCarByIdQueryHandler getLastCarByIdQueryHandler, 
+			CreateCarWihtFeatureCommandHandler createCarWihtFeatureCommandHandler)
+		  
 		{
 			_createCommandHandler = createCommandHandler;
 			_getCarByIdQueryHandler = getCarByIdQueryHandler;
@@ -36,6 +39,8 @@ namespace CarBook.WebApi.Controllers
 			_getCarWithBrandQueryHandler = getCarWithBrandQueryHandler;
 			_getLast5CarsWithBrandQueryHandler = getLast5CarsWithBrandQueryHandler;
 			_getLastCarByIdQueryHandler = getLastCarByIdQueryHandler;
+			_createCarWihtFeatureCommandHandler = createCarWihtFeatureCommandHandler;
+
 		}
 
 
@@ -58,9 +63,16 @@ namespace CarBook.WebApi.Controllers
 		}
 
 		[HttpPost]
-		public async Task<IActionResult>CreateCar(CreateCarCommand command)
+		public async Task<IActionResult> CreateCar(CreateCarCommand command)
 		{
 			await _createCommandHandler.Handle(command);
+			return Ok("Ekleme İşlemi Başarılı");
+		}
+
+		[HttpPost("CreateCarWithFeature")]
+		public async Task<IActionResult> CreateCarWithFeature(CreateCarCommand command)
+		{
+			await _createCarWihtFeatureCommandHandler.Handle(command);
 			return Ok("Ekleme İşlemi Başarılı");
 		}
 
@@ -72,7 +84,7 @@ namespace CarBook.WebApi.Controllers
 		}
 
 		[HttpDelete("{id}")]
-		public async Task<IActionResult>RemoveCar(int id)
+		public async Task<IActionResult> RemoveCar(int id)
 		{
 			await _removeCarCommandHandler.Handle(new RemoveCarCommand(id));
 			return Ok("Silme Başarılı");

@@ -60,7 +60,7 @@ namespace CarBookUI.Controllers
 			var client = _httpClientFactory.CreateClient();
 			var jsonData = JsonConvert.SerializeObject(createCar);
 			StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-			var responseMessage = await client.PostAsync("https://localhost:7217/api/Cars", content);
+			var responseMessage = await client.PostAsync("https://localhost:7217/api/Cars/CreateCarWithFeature", content);
 			if (responseMessage.IsSuccessStatusCode)
 			{
 				return RedirectToAction("Index");

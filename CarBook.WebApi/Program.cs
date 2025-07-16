@@ -12,6 +12,7 @@ using Application.Interfaces.ICarFeatureRepositories;
 using Application.Interfaces.ICarPricingRepositories;
 using Application.Interfaces.ICarRepositories;
 using Application.Interfaces.ICommentRepositories;
+using Application.Interfaces.ILocationRepositories;
 using Application.Interfaces.IRentAcarRepositories;
 using Application.Interfaces.IStatisticRepositories;
 using Application.Services;
@@ -31,6 +32,7 @@ using Persistance.Repositories.CarFeatureRepositories;
 using Persistance.Repositories.CarPricingRepositories;
 using Persistance.Repositories.CarRepositories;
 using Persistance.Repositories.CommentRepositories;
+using Persistance.Repositories.LocationRepositories;
 using Persistance.Repositories.RentAcarRepositories;
 using Persistance.Repositories.StatisticRepositories;
 using Persistance.Repositories.TagRepositories;
@@ -52,6 +54,7 @@ builder.Services.AddScoped<ICarPricingRepository, CarPricingRepository>();
 builder.Services.AddScoped<ICarFeatureRepository, CarFeatureRepository>();
 builder.Services.AddScoped<ICarDescriptionRepository, CarDescriptionRepository>();
 builder.Services.AddScoped<IAppUserRepository, AppUserRepository>();
+builder.Services.AddScoped<ILocationRepository, LocationRepository>();
 
 
 builder.Services.AddScoped<CreateAboutCommandHandler>();
@@ -80,6 +83,7 @@ builder.Services.AddScoped<UpdateCarCommandHandler>();
 builder.Services.AddScoped<GetCarWithBrandAndPriceQueryHandler>();
 builder.Services.AddScoped<GetLast5CarsWithBrandQueryHandler>();
 builder.Services.AddScoped<GetLastCarByIdQueryHandler>();
+builder.Services.AddScoped<CreateCarWihtFeatureCommandHandler>();
 
 builder.Services.AddScoped<CreateCategoryCommandHandler>();
 builder.Services.AddScoped<GetCategoryByIdQuaryHandler>();

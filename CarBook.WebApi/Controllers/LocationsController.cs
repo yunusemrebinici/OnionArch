@@ -37,6 +37,13 @@ namespace CarBook.WebApi.Controllers
 			return Ok("Ekleme Başarılı");
 		}
 
+		[HttpPost("CreateLocationWithRentAcar")]
+		public async Task<IActionResult>CreateLocationWithRentAcar(CreateLocationWithRentAcarCommand command)
+		{
+			await _mediator.Send(command);
+			return Ok("Ekleme Başarılı");
+		}
+
 		[HttpPut]
 		public async Task<IActionResult> UpdateLocation(UpdateLocationCommand command)
 		{

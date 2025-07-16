@@ -63,7 +63,7 @@ Projeyi yerel geliştirme ortamınızda çalıştırmak için aşağıdaki adım
 
 Buraya projenizden ekran görüntüleri ekleyebilirsiniz. Örneğin:
 
-![image alt](https://github.com/yunusemrebinici/UdemySignalR/blob/master/OnionArch/Images/1.png)
+![image alt](https://github.com/yunusemrebinici/OnionArch/blob/master/Images/1.png)
 
 ---
 

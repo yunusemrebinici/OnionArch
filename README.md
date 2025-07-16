@@ -1,6 +1,6 @@
 # CarBook Projesi 🚗
 
-CarBook, kullanıcıların araç kiralama işlemleri yapabileceği, araçların detaylarına ulaşabileceği, lokasyona göre fiyatları görüntüleyebileceği ve kiralama işlemlerini kolayca gerçekleştirebileceği kapsamlı bir platformdur. Admin paneli üzerinden araçlar, lokasyonlar, bloglar, referanslar ve diğer içerikler dinamik olarak yönetilebilir. Ayrıca, kullanıcılar araçlarla ilgili yorumlar yapabilir ve bu yorumları inceleyebilirler.
+CarBook, kullanıcıların araç kiralama işlemleri yapabileceği, araçların detaylarına ulaşabileceği, lokasyona göre fiyatları görüntüleyebileceği ve kiralama işlemlerini kolayca gerçekleştirebileceği kapsamlı bir platformdur. Admin paneli üzerinden araçlar, lokasyonlar, bloglar, referanslar ve diğer içerikler dinamik olarak yönetilebilir. Ayrıca, kullanıcılar Bloglar ile ilgili yorumlar yapabilir ve bu yorumları inceleyebilirler.
 
 Bu proje, modern web teknolojileri kullanılarak geliştirilmiş olup, yüksek performans, güvenlik ve sürdürülebilirlik hedeflenmiştir.
 
@@ -44,7 +44,7 @@ Bu proje, modern web teknolojileri kullanılarak geliştirilmiş olup, yüksek p
 * **Diğer Özellikler:**
     * **View Components ve Areas:** MVC yapısında bileşen tabanlı geliştirme ve modüler yapılandırma için kullanılmıştır.
  
-*-Proje Murat Yücedağ eğitimleri bünyesinde geliştirilmiştir.
+*Proje Murat Yücedağ eğitimleri bünyesinde geliştirilmiştir.
 ## 🚀 Kurulum Adımları
 
 Projeyi yerel geliştirme ortamınızda çalıştırmak için aşağıdaki adımları takip edin:
@@ -61,9 +61,6 @@ Projeyi yerel geliştirme ortamınızda çalıştırmak için aşağıdaki adım
 
 
 ## 🌄 Görseller
-
-Buraya projenizden ekran görüntüleri ekleyebilirsiniz. Örneğin:
-
 ![image alt](https://github.com/yunusemrebinici/OnionArch/blob/master/Images/1.png)
 ![image alt](https://github.com/yunusemrebinici/OnionArch/blob/master/Images/2.png)
 ![image alt](https://github.com/yunusemrebinici/OnionArch/blob/master/Images/3.png)

@@ -14,7 +14,7 @@ namespace Application.Validators
 		public AppUserValidate()
 		{
 			RuleFor(x => x.UserName).NotEmpty().MinimumLength(2).MaximumLength(15).WithMessage("Boş Geçilemez , Min 2 - Max 15 Karakter Olmalıdır");
-			RuleFor(x => x.Password).NotEmpty().LessThan(10).WithMessage("Boş Geçilemez ve 10 karakterden Az Olmalıdır");
+			RuleFor(x => x.Password).NotEmpty().WithMessage("Boş Geçilemez ve 10 karakterden fazla Olmalıdır");
 
 		}
 	}

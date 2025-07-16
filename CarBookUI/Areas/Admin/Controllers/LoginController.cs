@@ -84,6 +84,13 @@ namespace CarBookUI.Areas.Admin.Controllers
 
 		}
 
+		[HttpGet]
+		public async Task<IActionResult> LogOut()
+		{
+			HttpContext.SignOutAsync(JwtBearerDefaults.AuthenticationScheme);
+			return RedirectToAction("Index","Login");
+		}
+
 
 
 

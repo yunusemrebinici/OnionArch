@@ -1,4 +1,5 @@
 ﻿using Application.Features.Mediator.Quaries.GetRentAcarQuery;
+using Application.Features.Mediator.Quaries.RentAcarQuaries;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -24,6 +25,12 @@ namespace CarBook.WebApi.Controllers
 			query.LocationId = LocationId;
 			var values= await _mediator.Send(query);
 			return Ok(values);
+		}
+
+		[HttpGet("GetRentAcarWithLocationName/{id}")]
+		public async Task<IActionResult>GetRentAcarWithLocationName(int id)
+		{
+			return Ok(await _mediator.Send(new GetRentAcarWithLocationNameQuery(id)));
 		}
 	}
 }

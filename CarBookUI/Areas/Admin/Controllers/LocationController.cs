@@ -38,7 +38,7 @@ namespace CarBookUI.Areas.Admin.Controllers
 			var client = _httpClientFactory.CreateClient();
 			var jsonData = JsonConvert.SerializeObject(create);
 			StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-			var responseMessage = await client.PostAsync("https://localhost:7217/api/Locations", content);
+			var responseMessage = await client.PostAsync("https://localhost:7217/api/Locations/CreateLocationWithRentAcar", content);
 			if (responseMessage.IsSuccessStatusCode)
 			{
 				return RedirectToAction("Index");

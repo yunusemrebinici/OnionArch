@@ -1,4 +1,5 @@
-﻿using Application.Interfaces.IRentAcarRepositories;
+﻿using Application.Features.Mediator.Results.RentAcarResults;
+using Application.Interfaces.IRentAcarRepositories;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Persistance.Context;
@@ -25,6 +26,20 @@ namespace Persistance.Repositories.RentAcarRepositories
 		{
 			var values = await _context.RentAcars.Where(filter).Include(x => x.Car).Include(y=>y.Car.Brand).Include(z=>z.Car.CarPricing).ToListAsync();
 			return values;
+		}
+
+		public async Task<List<GetRentAcarWithLocationNameResult>> GetRentAcarWithLocationNameResults(int id)
+		{
+			var values= await _context.RentAcars.Include(z=>z.Location).Where(x=>x.CarID==id).ToListAsync();
+			return values.Select(x=> new GetRentAcarWithLocationNameResult
+			{
+				CarID = x.CarID,
+				Available = x.Available,
+				LocationID = x.LocationID,
+				LocationName=x.Location.Name,
+				RentAcarID = x.RentAcarID,
+				
+			}).ToList();
 		}
 	}
 }

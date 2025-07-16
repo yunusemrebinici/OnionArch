@@ -18,6 +18,7 @@ namespace CarBookUI.Areas.Admin.Controllers
 			_httpClientFactory = httpClientFactory;
 		}
 
+		
 		public async Task< IActionResult> Index()
 		{
 

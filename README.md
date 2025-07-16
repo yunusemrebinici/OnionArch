@@ -63,10 +63,8 @@ Projeyi yerel geliştirme ortamınızda çalıştırmak için aşağıdaki adım
 
 Buraya projenizden ekran görüntüleri ekleyebilirsiniz. Örneğin:
 
-* Web sitesi ana sayfası
-* Araç detay sayfası
-* Admin paneli dashboard
-* Login/Register sayfası
+![image alt](https://github.com/yunusemrebinici/UdemySignalR/blob/master/OnionArch/Images/1.png)
 
 ---
+
 

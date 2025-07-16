@@ -1,62 +1,70 @@
 ﻿@using DTO.AdminAboutDtos
 @model List<ResultAboutAdminDto>
 @{
-	ViewData["Title"] = "Index";
-	Layout = "~/Views/UIAdmin/Index.cshtml";
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UIAdmin/Index.cshtml";
 }
 
+<style>
+    .small-text {
+        font-size: 0.9rem;
+    }
+
+    .small-header th {
+        font-size: 0.95rem;
+    }
+
+    .small-btn {
+        font-size: 0.85rem;
+        padding: 0.25rem 0.5rem;
+    }
+</style>
+
 <div>
-	<div class="card">
-		<div class="card-body">
-			<h4 class="card-title">Hakkımızda Kısmı,Sayfa düzeni için tek veri önerilir.</h4>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title small-text">Hakkımızda Verileri</h4>
 
-			<div class="table-responsive">
-				<table class="table table-striped mb-0">
+            <div class="table-responsive">
+                <table class="table table-striped mb-0 small-text">
 
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>Başlık</th>
-							<th>Açıklama</th>
-							<th>Resim Yolu</th>
-							<th>Sil</th>
-							<th>Güncelle</th>
+                    <thead class="small-header">
+                        <tr>
+                            <th>#</th>
+                            <th>Başlık</th>
+                            <th>Açıklama</th>
+                            <th>Resim Yolu</th>
+                            <th>Sil</th>
+                            <th>Güncelle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-						</tr>
-					</thead>
-					<tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.AboutID</td>
+                                <td>@item.Title</td>
+                                @if (item.Description != null && item.Description.Length > 50)
+                                {
+                                    <td>@item.Description.Substring(0, 50)...</td>
+                                }
+                                else
+                                {
+                                    <td>@item.Description</td>
+                                }
+                                <td>@item.ImageUrl</td>
+                                <td><a href="/Admin/About/DeleteAbout/@item.AboutID" class="btn btn-danger small-btn">Sil</a></td>
+                                <td><a href="/Admin/About/UpdateAbout/@item.AboutID" class="btn btn-success small-btn">Güncelle</a></td>
+                            </tr>
+                        }
 
-						@foreach (var item in Model)
-						{
-
-							<tr>
-
-								<td>@item.AboutID</td>
-								<td>@item.Title</td>
-								@if (item.Description.Length > 50)
-								{
-									<td>@item.Description.Substring(0,50)</td>
-								}
-								else
-								{
-									<td>@item.Description</td>
-								}
-
-								<td>@item.ImageUrl</td>
-								<td><a href="/Admin/About/DeleteAbout/@item.AboutID" class="btn btn-danger">Sil</a></td>
-								<td><a href="/Admin/About/UpdateAbout/@item.AboutID" class="btn btn-success">Güncelle</a></td>
-
-							</tr>
-						}
-
-					</tbody>
-				</table>
-				<td>
-					<a href="/Admin/About/CreateAbout/" class="btn btn-primary">Ekle</a>
-				</td>
-			</div>
-		</div>
-	</div>
-
+                    </tbody>
+                </table>
+                <div class="mt-2">
+                    <a href="/Admin/About/CreateAbout/" class="btn btn-primary small-btn">Ekle</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-

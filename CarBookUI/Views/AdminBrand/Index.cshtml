@@ -1,46 +1,60 @@
 ﻿@model List<ResultBrandInAdminDto>
 @{
-	ViewData["Title"] = "Index";
-	Layout = "~/Views/UIAdmin/Index.cshtml";
-	int count = 0;
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UIAdmin/Index.cshtml";
+    int count = 0;
 }
 
+<style>
+    .small-text {
+        font-size: 0.9rem;
+    }
+
+    .small-header th {
+        font-size: 0.95rem;
+    }
+
+    .small-btn {
+        font-size: 0.85rem;
+        padding: 0.25rem 0.5rem;
+    }
+</style>
+
 <div>
-	<div class="card">
-		<div class="card-body">
-			<h4 class="card-title">Striped rows</h4>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title small-text">Marka Verileri</h4>
 
-			<div class="table-responsive">
-				<table class="table table-striped mb-0">
+            <div class="table-responsive">
+                <table class="table table-striped mb-0 small-text">
 
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>Marka</th>
-							<th>Güncelle</th>
+                    <thead class="small-header">
+                        <tr>
+                            <th>#</th>
+                            <th>Marka</th>
+                            <th>Güncelle</th>
+                            <th>Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-						</tr>
-					</thead>
-					<tbody>
+                        @foreach (var item in Model)
+                        {
+                            count++;
+                            <tr>
+                                <th scope="row">@count</th>
+                                <td>@item.name</td>
+                                <td><a href="/AdminBrand/UpdateBrand/@item.brandID" class="btn btn-success small-btn">Güncelle</a></td>
+                                <td><a href="/AdminBrand/DeleteBrand/@item.brandID" class="btn btn-danger small-btn">Sil</a></td>
+                            </tr>
+                        }
 
-						@foreach (var item in Model)
-						{
-							count++;
-							<tr>
-								<th scope="row">@count</th>
-								<td>@item.name</td>
-								<td><a href="/AdminBrand/UpdateBrand/@item.brandID" class="btn btn-success">Güncelle</a></td>
-
-							</tr>
-						}
-
-					</tbody>
-				</table>
-				<td>
-					<a href="/AdminBrand/CreateBrand/" class="btn btn-primary">Ekle</a>
-				</td>
-			</div>
-		</div>
-	</div>
-
+                    </tbody>
+                </table>
+                <div class="mt-2">
+                    <a href="/AdminBrand/CreateBrand/" class="btn btn-primary small-btn">Ekle</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -4,45 +4,55 @@
     Layout = "~/Views/UIAdmin/Index.cshtml";
 }
 
+<style>
+    .small-text {
+        font-size: 0.9rem;
+    }
+
+    .small-header th {
+        font-size: 0.95rem;
+    }
+
+    .small-btn {
+        font-size: 0.85rem;
+        padding: 0.25rem 0.5rem;
+    }
+</style>
+
 <div>
-	<div class="card">
-		<div class="card-body">
-			<h4 class="card-title">Fiyat Kısmına Ait Veriler Bulunmaktadır</h4>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title small-text">Fiyatlandırma Verileri</h4>
 
-			<div class="table-responsive">
-				<table class="table table-striped mb-0">
+            <div class="table-responsive">
+                <table class="table table-striped mb-0 small-text">
 
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>Fiyat</th>
-							<th>Sil</th>
-							<th>Güncelle</th>
-						</tr>
-					</thead>
-					<tbody>
+                    <thead class="small-header">
+                        <tr>
+                            <th>#</th>
+                            <th>Fiyat</th>
+                            <th>Sil</th>
+                            <th>Güncelle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-						@foreach (var item in Model)
-						{
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.pricingID</td>
+                                <td>@item.name</td>
+                                <td><a href="/Admin/Pricing/DeletePricing/@item.pricingID" class="btn btn-danger small-btn">Sil</a></td>
+                                <td><a href="/Admin/Pricing/UpdatePricing/@item.pricingID" class="btn btn-success small-btn">Güncelle</a></td>
+                            </tr>
+                        }
 
-							<tr>
-
-								<td>@item.pricingID</td>
-								<td>@item.name</td>
-								<td><a href="/Admin/Pricing/DeletePricing/@item.pricingID" class="btn btn-danger">Sil</a></td>
-								<td><a href="/Admin/Pricing/UpdatePricing/@item.pricingID" class="btn btn-success">Güncelle</a></td>
-
-							</tr>
-						}
-
-					</tbody>
-				</table>
-				<td>
-					<a href="/Admin/Pricing/CreatePricing/" class="btn btn-primary">Ekle</a>
-				</td>
-			</div>
-		</div>
-	</div>
-
+                    </tbody>
+                </table>
+                <div class="mt-2">
+                    <a href="/Admin/Pricing/CreatePricing/" class="btn btn-primary small-btn">Ekle</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-

@@ -1,47 +1,61 @@
 ﻿@model List<ResultFeatureAdminDto>
 @{
-	ViewData["Title"] = "Index";
-	Layout = "~/Views/UIAdmin/Index.cshtml";
-	int count = 0;
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UIAdmin/Index.cshtml";
+    int count = 0;
 }
 
+<style>
+    .small-text {
+        font-size: 0.9rem;
+    }
+
+    .small-header th {
+        font-size: 0.95rem;
+    }
+
+    .small-btn {
+        font-size: 0.85rem;
+        padding: 0.25rem 0.5rem;
+    }
+</style>
+
 <div>
-	<div class="card">
-		<div class="card-body">
-			<h4 class="card-title">Özellikler</h4>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title small-text">Özellik Verileri</h4>
+            <p>Sayfa Tasarımı Açısından Ekle Ve Sil Kaldırılmıştır.</p>
 
-			<div class="table-responsive">
-				<table class="table table-striped mb-0">
+            <div class="table-responsive">
+                <table class="table table-striped mb-0 small-text">
 
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>Özellik</th>
-							<th>Güncelle</th>
+                    <thead class="small-header">
+                        <tr>
+                            <th>#</th>
+                            <th>Özellik</th>
+                            <th>Güncelle</th>
+                    
+                        </tr>
+                    </thead>
+                    <tbody>
 
-						</tr>
-					</thead>
-					<tbody>
+                        @foreach (var item in Model)
+                        {
+                            count++;
+                            <tr>
+                                <th scope="row">@count</th>
+                                <td>@item.name</td>
+                                <td><a href="/AdminFeature/UpdateFeature/@item.FeatureID" class="btn btn-success small-btn">Güncelle</a></td>
+                                
+                            </tr>
+                        }
 
-						@foreach (var item in Model)
-						{
-							count++;
-							<tr>
-								<th scope="row">@count</th>
-								<td>@item.name</td>
-								<td><a href="/AdminFeature/UpdateFeature/@item.FeatureID" class="btn btn-success">Güncelle</a></td>
-
-							</tr>
-						}
-
-					</tbody>
-				</table>
-				<td>
-					<a href="/AdminFeature/CreateFeature/" class="btn btn-primary">Ekle</a>
-				</td>
-			</div>
-		</div>
-	</div>
-
+                    </tbody>
+                </table>
+                <div class="mt-2">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-

@@ -1,4 +1,5 @@
-﻿using Application.Features.Mediator.Results.RentAcarResults;
+﻿using Application.Features.Mediator.Quaries.RentAcarQuaries;
+using Application.Features.Mediator.Results.RentAcarResults;
 using Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,11 @@ namespace Application.Interfaces.IRentAcarRepositories
 {
 	public interface IRentAcarRepository
 	{
-		Task<List<RentAcar>> GetByFilterAsync(Expression<Func<RentAcar,bool>>filter);
+		Task<List<RentAcar>> GetByFilterAsync(Expression<Func<RentAcar, bool>> filter);
+
+		Task GetRentACarLocationStatusTrue(GetRentACarLocationStatusTrueQuery trueQuery);
+
+		Task GetRentACarLocationStatusFalse(GetRentACarLocationStatusFalseQuery falseQuery);
 
 		Task<List<GetRentAcarWithLocationNameResult>> GetRentAcarWithLocationNameResults(int id);
 	}

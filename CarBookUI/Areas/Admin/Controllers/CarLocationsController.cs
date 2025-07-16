@@ -3,6 +3,7 @@ using DTO.AdminCarLocationsDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Net.Http;
+using System.Text;
 
 namespace CarBookUI.Areas.Admin.Controllers
 {
@@ -29,6 +30,37 @@ namespace CarBookUI.Areas.Admin.Controllers
 				return View(values);
 			}
 			return View();
+		}
+
+		[HttpPost("{id}")]
+		public async Task<IActionResult> Index(List<CarLocationsStatusChangeDto> changeStatus)
+		{
+			CarLocationsStatusChangeDto change = new CarLocationsStatusChangeDto();
+			var client = _httpClientFactory.CreateClient();
+			foreach (var item in changeStatus)
+			{
+				if (item.Available == true)
+				{
+					change.LocationID = item.LocationID;
+					change.CarID = item.CarID;
+					change.RentAcarID = item.RentAcarID;
+					var json = JsonConvert.SerializeObject(change);
+					StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+					var responseMessage = await client.PostAsync("https://localhost:7217/api/RentAcars/GetRentACarLocationStatusTrue", content);
+				}
+				else
+				{
+					change.LocationID = item.LocationID;
+					change.CarID = item.CarID;
+					change.RentAcarID = item.RentAcarID;
+					var json = JsonConvert.SerializeObject(change);
+					StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+					var responseMessage = await client.PostAsync("https://localhost:7217/api/RentAcars/GetRentACarLocationStatusFalse", content);
+				}
+
+
+			}
+			return RedirectToAction("Index", "AdminCar");
 		}
 	}
 }

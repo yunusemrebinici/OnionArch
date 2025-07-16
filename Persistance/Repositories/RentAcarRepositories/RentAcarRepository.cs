@@ -1,4 +1,5 @@
-﻿using Application.Features.Mediator.Results.RentAcarResults;
+﻿using Application.Features.Mediator.Quaries.RentAcarQuaries;
+using Application.Features.Mediator.Results.RentAcarResults;
 using Application.Interfaces.IRentAcarRepositories;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -26,6 +27,22 @@ namespace Persistance.Repositories.RentAcarRepositories
 		{
 			var values = await _context.RentAcars.Where(filter).Include(x => x.Car).Include(y=>y.Car.Brand).Include(z=>z.Car.CarPricing).ToListAsync();
 			return values;
+		}
+
+		public async Task GetRentACarLocationStatusFalse(GetRentACarLocationStatusFalseQuery falseQuery)
+		{
+			var value= await _context.RentAcars.Where(x=>x.RentAcarID==falseQuery.RentAcarID && x.CarID==falseQuery.CarID && x.LocationID==falseQuery.LocationID).FirstOrDefaultAsync();
+			value.Available = false;
+			await _context.SaveChangesAsync();
+			
+
+		}
+
+		public async Task GetRentACarLocationStatusTrue(GetRentACarLocationStatusTrueQuery trueQuery)
+		{
+			var value = await _context.RentAcars.Where(x => x.RentAcarID == trueQuery.RentAcarID && x.CarID == trueQuery.CarID && x.LocationID == trueQuery.LocationID).FirstOrDefaultAsync();
+			value.Available = true;
+			await _context.SaveChangesAsync();
 		}
 
 		public async Task<List<GetRentAcarWithLocationNameResult>> GetRentAcarWithLocationNameResults(int id)
